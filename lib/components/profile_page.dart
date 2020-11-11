@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import '../main.dart';
 import './bottom_nav.dart';
 
@@ -10,6 +11,41 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   double width, height;
+  String uid;
+  String name ;
+  String phone ;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  @override
+void initState() {
+  super.initState();
+  getCurrentUser();
+  }
+  
+  Future<void> getCurrentUser() async {
+    final User user = await _auth.currentUser;
+    final uid = user.uid;
+    // Similarly we can get email as well
+    //final uemail = user.email;
+    CollectionReference users = FirebaseFirestore.instance.collection(uid);
+    FirebaseFirestore.instance
+    .collection('userdata')
+    .doc(uid)
+    .get()
+    .then((DocumentSnapshot documentSnapshot) {
+      if (documentSnapshot.exists) {
+        print('Document data: ${documentSnapshot.data()["phone"]}');
+        setState(() {
+          name = documentSnapshot.data()["name"];
+          phone = documentSnapshot.data()["phone"];
+        });
+      } else {
+        print('Document does not exist on the database');
+      }
+    });
+    print(uid);
+    //print(uemail);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +86,9 @@ class _ProfilePageState extends State<ProfilePage> {
               Icons.arrow_back_ios,
               color: Colors.black,
             ),
-            onPressed: null,
+            onPressed: () {
+              Navigator.pop(context);
+            },
           ),
         ),
         actions: [
@@ -92,8 +130,8 @@ class _ProfilePageState extends State<ProfilePage> {
                   Container(
                     width: width * 0.50,
                     child: Center(
-                      child: Text(
-                        "Shatakchi",
+                  child:   name==null ? Container(height: 12 , width: 12 ,child: CircularProgressIndicator()) :  Text(
+                        name,
                         style: TextStyle(
                           fontSize: 15,
                           color: Colors.black.withOpacity(0.6), //0xFF78A143
@@ -200,8 +238,8 @@ class _ProfilePageState extends State<ProfilePage> {
                   Container(
                     width: width * 0.50,
                     child: Center(
-                      child: Text(
-                        "975313579",
+               child :  phone == null ? Container(height: 12 , width: 12 ,child: CircularProgressIndicator(),):      Text(
+                        phone,
                         style: TextStyle(
                           fontSize: 15,
                           color: Colors.black.withOpacity(0.6), //0xFF78A143

@@ -45,7 +45,7 @@ class _BeginningPageState extends State<BeginningPage> {
                       email: _email.toString().trim(), password: _password))
               .user;
               String uid = user.uid;
-         // updateName(uid);
+          updateName(uid);
           print("Registerres user is ${user.uid}");
           setState(() {
             registerMess = "Successfully Registered";
@@ -117,15 +117,19 @@ class _BeginningPageState extends State<BeginningPage> {
     }
   }
 
-/* void updateName(String uid)async {
-   CollectionReference userdata =
+ void updateName(String uid)async {
+   try{
+     CollectionReference userdata =
              await FirebaseFirestore.instance.collection('userdata');
 
           userdata.doc(uid).set({
             'name': _name,
             'phone': _phone,
           });
- }*/
+   } catch (e){
+     print(e.message);
+   }
+ }
 
 
   void moveToRegister() {

@@ -142,3 +142,32 @@ List<Schemes> schemes = [
           "The third planean 18 miles per second (29 km per second).",
       ),
 ];
+
+
+class Statistics {
+  final String name;
+  final String link;
+ 
+
+  Statistics(
+     {
+    this.name,
+    this.link,
+   
+  });
+}
+
+List<Statistics> statistics = [
+  Statistics(
+  name : "First Estimate",
+  link: "http://agricoop.nic.in/sites/default/files/FirstEstimate2020-21.pdf"),
+  Statistics(
+  name : "First Estimate",
+  link: "http://agricoop.nic.in/sites/default/files/FirstEstimate2020-21.pdf"),
+  Statistics(
+  name : "First Estimate",
+  link: "http://agricoop.nic.in/sites/default/files/FirstEstimate2020-21.pdf"),
+  Statistics(
+  name : "First Estimate",
+  link: "http://agricoop.nic.in/sites/default/files/FirstEstimate2020-21.pdf"),
+];

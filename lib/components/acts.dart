@@ -48,29 +48,6 @@ class _ActsnRulesState extends State<ActsnRules> {
             
             )
         ); 
-        
-        
-        
-        /*Container(
-          decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(15)),
-          margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          child: CustomExpTile(
-            title: Text(
-              acts[index].name,
-              style: TextStyle(color: Color(0xFF0C9869)),
-            ),
-            children: [
-              Container(
-                width: 200,
-                color: Colors.red,
-                child: Card(
-                  child: Text("gsh"),
-                ),
-              )
-            ],
-          ),
-        );*/
       }),
       bottomNavigationBar: BottomNav(height: height, width: width,)
     );
