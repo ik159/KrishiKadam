@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "42025739846",
+    "firebase_url": "https://innovathon-ieee.firebaseio.com",
+    "project_id": "innovathon-ieee",
+    "storage_bucket": "innovathon-ieee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:42025739846:android:dc4da9bf077e3be99a4c47",
+        "android_client_info": {
+          "package_name": "com.example.krishikadam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "42025739846-kh9r8outhorsjpvjerl7f8g9lepbvmf3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.krishikadam",
+            "certificate_hash": "f450cadf8095b9897b1d3880994db38fabc46e59"
+          }
+        },
+        {
+          "client_id": "42025739846-h72uagpmnnjpe8rgbps1f584sfmgnnn5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOg3wOhePqESPVohc1gLH0u4D0nSdhivM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "42025739846-h72uagpmnnjpe8rgbps1f584sfmgnnn5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
