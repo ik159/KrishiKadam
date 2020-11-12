@@ -44,7 +44,7 @@ class _BeginningPageState extends State<BeginningPage> {
                   .createUserWithEmailAndPassword(
                       email: _email.toString().trim(), password: _password))
               .user;
-              String uid = user.uid;
+          String uid = user.uid;
           updateName(uid);
           print("Registerres user is ${user.uid}");
           setState(() {
@@ -117,20 +117,19 @@ class _BeginningPageState extends State<BeginningPage> {
     }
   }
 
- void updateName(String uid)async {
-   try{
-     CollectionReference userdata =
-             await FirebaseFirestore.instance.collection('userdata');
+  void updateName(String uid) async {
+    try {
+      CollectionReference userdata =
+          await FirebaseFirestore.instance.collection('userdata');
 
-          userdata.doc(uid).set({
-            'name': _name,
-            'phone': _phone,
-          });
-   } catch (e){
-     print(e.message);
-   }
- }
-
+      userdata.doc(uid).set({
+        'name': _name,
+        'phone': _phone,
+      });
+    } catch (e) {
+      print(e.message);
+    }
+  }
 
   void moveToRegister() {
     formKey.currentState.reset();
@@ -170,7 +169,8 @@ class _BeginningPageState extends State<BeginningPage> {
             children: [
               Container(
                 margin: EdgeInsets.symmetric(vertical: 5),
-                height: _formType == FormType.login ? height * 0.30: height * 0.20,
+                height:
+                    _formType == FormType.login ? height * 0.30 : height * 0.20,
                 child: Image.asset("assets/images/logo.png"),
               ),
               Container(
