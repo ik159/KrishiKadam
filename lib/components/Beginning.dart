@@ -157,7 +157,7 @@ class _BeginningPageState extends State<BeginningPage> {
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-                  Colors.blue[200],
+                  Color(0xFFCFF6FF),
                   Colors.white,
                   ],
           

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:custom_switch/custom_switch.dart';
-
 import '../bottom_nav.dart';
 
 void main() => runApp(MyApp());
@@ -33,7 +32,7 @@ class _SoilState extends State<Soil> {
                             Padding(
                               padding: const EdgeInsets.only(top: 10.0, left: 8, right: 20),
                               child: Icon(
-                                Icons.arrow_back_sharp,
+                                Icons.arrow_back,
                                 color: Colors.black,
                                 size: 34.0,
                               ),

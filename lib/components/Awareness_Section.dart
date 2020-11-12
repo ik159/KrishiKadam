@@ -6,6 +6,7 @@ import './stats.dart';
 import './schemes.dart';
 import './bottom_nav.dart';
 import './profile_page.dart';
+import 'Home.dart';
 
 
 class AwarenessSection extends StatelessWidget {
@@ -66,14 +67,14 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           leading: GestureDetector(
             onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage() ));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage() ));
             },
                       child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: IconButton(
                 
                 icon: Icon(
-                  Icons.arrow_back_ios,
+                  Icons.arrow_back,
                   color: Colors.black,
                 ),
                 onPressed: null,

@@ -33,7 +33,7 @@ class _CropState extends State<Crop> {
                             Padding(
                               padding: const EdgeInsets.only(top: 10.0, left: 8, right: 20),
                               child: Icon(
-                                Icons.arrow_back_sharp,
+                                Icons.arrow_back,
                                 color: Colors.black,
                                 size: 34.0,
                               ),

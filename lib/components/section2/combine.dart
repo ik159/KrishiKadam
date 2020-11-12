@@ -5,10 +5,7 @@ import 'package:krishikadam/components/Section2/soil.dart';
 
 import '../bottom_nav.dart';
 
-
-
-
-class MyApp extends StatelessWidget {
+class sect2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

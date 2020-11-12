@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import './profile_page.dart';
 import './Awareness_Section.dart';
-import './RealTimeData.dart';
 import './Predictive_Analysis.dart';
+import 'Predictive_Analysis.dart';
+import 'section2/combine.dart';
 
 class BottomNav extends StatefulWidget {
   BottomNav({Key key, this.width, this.height}) : super(key: key);
@@ -23,7 +23,7 @@ class _BottomNavState extends State<BottomNav> {
         /* borderRadius: BorderRadius.vertical(
                 top: Radius.circular(36.0),
               ),*/
-        color: Colors.transparent,
+        color: Colors.white,
       ),
       padding: const EdgeInsets.all(0),
       child: Column(
@@ -78,7 +78,7 @@ class _BottomNavState extends State<BottomNav> {
                        Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => RealTimeData()),
+                              builder: (context) => sect2()),
                         );
                     },
                   ),
@@ -95,7 +95,7 @@ class _BottomNavState extends State<BottomNav> {
                        Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => PredictiveAnalysis()),
+                              builder: (context) => sect3()),
                         );
                     },
                   ),
