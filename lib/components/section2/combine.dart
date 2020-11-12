@@ -1,7 +1,9 @@
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:krishikadam/components/section2/crop.dart';
 import 'package:krishikadam/components/section2/soil.dart';
+import '../Home.dart';
 import '../bottom_nav.dart';
 
 class sect2 extends StatelessWidget {
@@ -27,28 +29,51 @@ double width , height;
     height = MediaQuery.of(context).size.height;
     return Scaffold(
         backgroundColor: Colors.white,
+          appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0.0,
+        leading: IconButton(
+          onPressed: (){
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => HomePage()),
+            );
+          },
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
+        ),
+        title: Container(
+          decoration: BoxDecoration(
+              color: Color(0xFFB9DA8F),
+              boxShadow: [
+                BoxShadow(
+                  color: Color(0x878787).withOpacity(0.5),
+                  spreadRadius: 0.07,
+                  blurRadius: 3,
+                  offset: Offset(2.0,2.0),
+                )
+              ]
+          ),
+          width: width * 0.65,
+          height: height * 0.09,
+          child: Center(
+            child: Text("Real Time Data",
+                style: GoogleFonts.montserrat(
+                    textStyle: TextStyle(fontSize: 21, color: Colors.black))),
+          ),
+        ),
+      ),
           body: SingleChildScrollView(
                       child: Column(
         children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical:25.0, horizontal: 30.0),
-              child: Container(
-        
-                                  height: height * .07,
-                                  alignment: Alignment.center,
-                                  decoration: BoxDecoration(
-                                      color: Colors.black.withOpacity(.1),
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(20))),
-                                  child: TextField(
-                                    decoration: InputDecoration(
-                                      hintText: "Search...",
-                                      border: InputBorder.none,
-                                      prefixIcon: Icon(Icons.search),
-                                    ),
-                                  ),
-              ),
-            ),
+           Text('Soil', style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 40.0),),
+                         SizedBox(height: 30),
             GestureDetector(
               onTap: (){
             Navigator.push(  context,
@@ -70,15 +95,21 @@ double width , height;
                   ),
                   child:  Padding(
                     padding: const EdgeInsets.only(top:80.0, left: 80),
-                    child: Text('Soil',
-                    style: TextStyle(
-                        color: Colors.green,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 40.0)),
+                    // child: Text('Soil',
+                    // style: TextStyle(
+                    //     color: Colors.green,
+                    //     fontWeight: FontWeight.bold,
+                    //     fontSize: 40.0)),
                   ),
                 ),
               ),
             ),
+            SizedBox(height: 30),
+             Text('Soil', style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 40.0),),
+                         SizedBox(height: 30),
               GestureDetector(
                 onTap: (){
             Navigator.push(  context,
@@ -100,11 +131,11 @@ double width , height;
                   ),
                 child:  Padding(
                   padding: const EdgeInsets.only(top:80.0, left: 80.0),
-                  child: Text('Crops',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 40.0)),
+                  // child: Text('Crops',
+                  //   style: TextStyle(
+                  //       color: Colors.black,
+                  //       fontWeight: FontWeight.bold,
+                  //       fontSize: 40.0)),
                 ),
                 ),
             ),
