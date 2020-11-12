@@ -157,9 +157,10 @@ class _BeginningPageState extends State<BeginningPage> {
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-            Colors.blue[200],
-            Colors.white,
-          ],
+                  Colors.blue[200],
+                  Colors.white,
+                  ],
+          
         ),
       ),
       child: Scaffold(

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:krishikadam/components/Section2/crop.dart';
 import 'package:krishikadam/components/Section2/soil.dart';
 
+import '../bottom_nav.dart';
+
 
 
 
@@ -104,7 +106,8 @@ class _ScreenState extends State<Screen> {
               ),
               ),
           ),
-            )
+            ),
+            BottomNav(),
         ],
       ),
     );
