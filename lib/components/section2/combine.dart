@@ -60,7 +60,7 @@ class _ScreenState extends State<Screen> {
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.white,
                   image: DecorationImage(
-                          image: AssetImage('assets/soil.jpg'),
+                          image: AssetImage('assets/images/soil.jpg'),
                           fit: BoxFit.cover,
                         ),
                 ),
@@ -90,7 +90,7 @@ class _ScreenState extends State<Screen> {
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.green,
                   image: DecorationImage(
-                          image: AssetImage('assets/crops.jpg'),
+                          image: AssetImage('assets/images/crops.jpg'),
                           fit: BoxFit.cover,
                         ),
                 ),
