@@ -17,11 +17,7 @@ class HomePage extends StatelessWidget {
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
 
-    Container FTop(
-      GlobalKey<SimpleFoldingCellState> key,
-      String t,
-      Widget Function() Page,
-    ) {
+    Container FTop(GlobalKey<SimpleFoldingCellState> key, String t, Widget Function() Page,) {
       return Container(
         alignment: Alignment.center,
         decoration: BoxDecoration(

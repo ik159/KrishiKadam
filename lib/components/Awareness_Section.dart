@@ -159,6 +159,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         child: Text((index + 1).toString(),
                                             style: TextStyle(
                                               color: Color(0xFF78A143).withOpacity(0.6),
+                                                  
                                               fontSize: 35,
                                             )),
                                       ),
