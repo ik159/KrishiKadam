@@ -8,7 +8,6 @@ import './schemes.dart';
 import './bottom_nav.dart';
 import 'Home.dart';
 
-
 class AwarenessSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -83,105 +82,98 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             Expanded(
               child: Container(
-                padding: EdgeInsets.only(top: height * 0.02),
-                color: Colors.white,
+                padding: EdgeInsets.all(12),
                 child: Swiper(
                   itemCount: awareness.length,
                   itemWidth: width * 0.8,
                   layout: SwiperLayout.STACK,
                   itemBuilder: (context, index) {
-                    return InkWell(
-                      onTap: () {
-                        if (index == 0) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ActsnRules()),
-                          );
-                        } else if (index == 1) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => SchemesPage()),
-                          );
-                        } else {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => Stats()),
-                          );
-                        }
-                      },
-                      child: Stack(
+                    return Stack(
                         children: [
                           Positioned(
                             top: height * .16,
-                            left: 0,
                             child: Container(
-                              width: width * 0.8,
+                              width: width* 0.8,
                               height: height*0.4,
                               child: Card(
-                                elevation: 8,
+                                elevation: 5,
                                 color: Color(0xFFB9DA8F),
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20)),
                                 child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    children: [
-                                      Column(
+                                  padding: const EdgeInsets.all(17.0),
+                                  child: Column(
                                         crossAxisAlignment:
-                                            CrossAxisAlignment.start,
+                                            CrossAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: [
                                           Container(
                                               padding: EdgeInsets.all(8.0),
                                               child: Text(
                                                 awareness[index].name,
-                                                style: TextStyle(
+                                                style: GoogleFonts.montserrat(
                                                   fontSize: 25,
-                                                  color: Colors.black.withOpacity(0.6),
+                                                  color: Colors.black,
                                                 ),
                                               )),
                                           Container(
-                                            height: height*0.2,
                                             width: width*0.6,
                                             padding: EdgeInsets.all(8.0),
                                             child: Text(
                                               awareness[index].description,
-                                              style: TextStyle(
+                                              style: GoogleFonts.montserrat(
                                                   color:
-                                                      Colors.black),
+                                                  Colors.black.withOpacity(0.6)),
+                                            ),
+                                          ),
+                                          InkWell(
+                                            onTap: () {
+                                              if (index == 0) {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) => ActsnRules()),
+                                                );
+                                              } else if (index == 1) {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) => SchemesPage()),
+                                                );
+                                              } else {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(builder: (context) => Stats()),
+                                                );
+                                              }
+                                            },
+                                            child: Container(
+                                              child: Row(
+                                                mainAxisAlignment: MainAxisAlignment.end,
+                                                children: [
+                                                  Text(
+                                                  "Know More", style: GoogleFonts.montserrat(color: Colors.red[700]),
+                                                ),
+                                               Icon(
+                                                    Icons.arrow_forward_ios, color: Colors.red[700],
+                                                  ),
+                                              ],
+                                              ),
                                             ),
                                           ),
                                         ],
                                       ),
-                                      Container(
-                                        child: Text((index + 1).toString(),
-                                            style: TextStyle(
-                                              color: Color(0xFF78A143).withOpacity(0.6),
-                                                  
-                                              fontSize: 35,
-                                            )),
-                                      ),
-                                    ],
-                                  ),
                                 ),
                               ),
                             ),
                           ),
-                          Positioned(
-                            top: 0,
-                            left: 0,
-                            child: Image.asset(
-                              awareness[index].iconImage,
-                              width: width * .8,
-                              height: height * .20,
-                            ),
+                          Image.asset(
+                            awareness[index].iconImage,
+                            width: width * .8,
+                            height: height * .20,
                           ),
                         ],
-                      ),
-                    );
+                      );
                   },
                 ),
               ),

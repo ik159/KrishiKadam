@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:krishikadam/components/data.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:krishikadam/components/bottom_nav.dart';
+
 class ActsnRules extends StatefulWidget {
   @override
   _ActsnRulesState createState() => _ActsnRulesState();
@@ -17,10 +19,11 @@ class _ActsnRulesState extends State<ActsnRules> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        toolbarHeight: height*0.1,
         backgroundColor: Colors.white,
         elevation: 0,
         centerTitle: true,
-        title: Text("Acts & Rules" , style: TextStyle(color: Colors.black),),
+        title: Text("Acts and Rules" , style: GoogleFonts.montserrat(color: Colors.black, fontSize: 22), ),
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Image.asset("assets/images/logo.png"),
@@ -37,16 +40,13 @@ class _ActsnRulesState extends State<ActsnRules> {
             padding: const EdgeInsets.symmetric(vertical: 5.0),
             child: Text(
                 acts[index].name,
-                style: TextStyle(color: Colors.black.withOpacity(0.6)),
+                style: GoogleFonts.montserrat(color: Colors.black.withOpacity(0.6)),
               ),
           ),
             trailing: IconButton(icon: Icon(Icons.open_in_new , color: Colors.black87 , size: 20,), onPressed: (){
-
-              
               launch(acts[index].link);
             },),
-            
-            )
+            ),
         ); 
       }),
       bottomNavigationBar: BottomNav(height: height, width: width,)

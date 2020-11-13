@@ -413,7 +413,7 @@ class LogOut extends StatelessWidget {
           ),
           Text(
             "Are you sure?",
-            textAlign: TextAlign.center,
+            textAlign: TextAlign.center, style: GoogleFonts.montserrat(),
           )
         ],
       ),
@@ -431,7 +431,7 @@ class LogOut extends StatelessWidget {
                 ),
                 child: Text(
                   "Log Out",
-                  style: TextStyle(color: Colors.white),
+                  style: GoogleFonts.montserrat(color: Colors.white),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -454,7 +454,7 @@ class LogOut extends StatelessWidget {
                 ),
                 child: Text(
                   "Go Back",
-                  style: TextStyle(color: Colors.white),
+                  style: GoogleFonts.montserrat(color: Colors.white),
                   textAlign: TextAlign.center,
                 ),
               ),

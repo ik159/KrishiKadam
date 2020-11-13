@@ -68,95 +68,70 @@ class _ScreenState extends State<Screen> {
           ),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            children: [
-              SizedBox(height: 20),
-              Text(
-                'Soil',
-                style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20.0),
-              ),
-              SizedBox(height: 20),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Soil()),
-                  );
-                },
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 15.0, horizontal: 20.0),
-                  child: Container(
-                    height: height * .20,
-                    width: 320,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.white,
-                      image: DecorationImage(
-                        image: AssetImage('assets/images/soil.jpg'),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 80.0, left: 80),
-                      // child: Text('Soil',
-                      // style: TextStyle(
-                      //     color: Colors.green,
-                      //     fontWeight: FontWeight.bold,
-                      //     fontSize: 40.0)),
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(height: 20),
-              Text(
-                ' Crop',
-                style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20.0),
-              ),
-              SizedBox(height: 30),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Crop()),
-                  );
-                },
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 15.0, horizontal: 20.0),
-                  child: Container(
-                    height: height * 0.20,
-                    width: 320,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.green,
-                      image: DecorationImage(
-                        image: AssetImage('assets/images/crops.jpg'),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 80.0, left: 80.0),
-                      // child: Text('Crops',
-                      //   style: TextStyle(
-                      //       color: Colors.black,
-                      //       fontWeight: FontWeight.bold,
-                      //       fontSize: 40.0)),
-                    ),
-                  ),
-                ),
-              ),
-            ],
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Text(
+            'Soil',
+            style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.w500,
+                fontSize: 25.0),
           ),
-        ),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Soil()),
+              );
+            },
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                  vertical: 15.0, horizontal: 20.0),
+              child: Container(
+                height: height * .20,
+                width: 320,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/soil.jpg'),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Text(
+            ' Crop',
+            style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.w500,
+                fontSize: 25.0),
+          ),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Crop()),
+              );
+            },
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                  vertical: 15.0, horizontal: 20.0),
+              child: Container(
+                height: height * 0.20,
+                width: 320,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/crops.jpg'),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
       bottomNavigationBar: BottomNav(
         height: height,

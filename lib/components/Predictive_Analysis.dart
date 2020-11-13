@@ -83,10 +83,8 @@ class _sect3State extends State<sect3> {
         color: Colors.white,
         child: Column(
           children: [
-            Padding(
-              padding: EdgeInsets.fromLTRB(
-                  width * 0.025, height * 0.05, width * 0.025, height * 0.07),
-              child: Row(
+            SizedBox(height: height* 0.045,),
+            Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Container(
@@ -99,14 +97,14 @@ class _sect3State extends State<sect3> {
                         color: Color(0xFFB9DA8F),
                         boxShadow: [
                           BoxShadow(
-                            color: Color(0x878787).withOpacity(0.5),
+                            color: Colors.grey.withOpacity(0.45),
                             spreadRadius: 0.07,
                             blurRadius: 3,
-                            offset: Offset(2.0,2.0),
+                            offset: Offset(0,4.0),
                           )
                         ]
                     ),
-                    height: height * 0.075,
+                    height: height * 0.06,
                     width: width * 0.35,
                   ),
                   Container(
@@ -115,30 +113,32 @@ class _sect3State extends State<sect3> {
                         style: GoogleFonts.montserrat(
                             textStyle: TextStyle(fontSize: 18, color: Colors.white))),
                     ),
-                    height: height * 0.075,
+                    height: height * 0.06,
                     width: width * 0.45,
                     decoration: BoxDecoration(
-                        color: Color(0xFFB9DA8F),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Color(0x878787).withOpacity(0.5),
-                            spreadRadius: -10,
-                            blurRadius: 10,
-                          )
-                        ]
+                      gradient: LinearGradient(
+                        begin: Alignment(-1, -1),
+                        end: Alignment(-1, -0.8),
+                        colors: [Colors.grey, Color(0xFFB9DA8F)],
+                      ),
+                      color: Color(0xFFB9DA8F), //0xFFB9DA8F
                     ),
                   ),
                 ],
               ),
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                buildkey("Water required"),
-                buildkey("Infections"),
-                buildkey("Harvest time"),
-                buildkey("Additional"),
-              ],
+            SizedBox(height: height* 0.07,),
+            Expanded(
+              child: Container(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    buildkey("Water required"),
+                    buildkey("Infections"),
+                    buildkey("Harvest time"),
+                    buildkey("Additional"),
+                  ],
+                ),
+              ),
             ),
           ],
         ),
