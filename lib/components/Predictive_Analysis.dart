@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import 'Home.dart';
 import 'bottom_nav.dart';
 
 class sect3 extends StatefulWidget {
@@ -40,42 +38,48 @@ class _sect3State extends State<sect3> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0.0,
-        leading: IconButton(
-          onPressed: (){
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => HomePage()),
-            );
-          },
-          icon: Icon(
-            Icons.arrow_back,
-            color: Colors.black,
-          ),
-        ),
-        title: Container(
-          decoration: BoxDecoration(
-              color: Color(0xFFB9DA8F),
+          backgroundColor: Colors.white,
+          elevation: 0,
+          title: Container(
+            width: width * 0.60,
+            child: Center(
+              child: Text(
+                "Predictive Analysis",
+                style: TextStyle(
+                  fontSize: 15,
+                  color: Colors.black, //0xFF78A143
+                ),
+              ),
+            ),
+            decoration: BoxDecoration(
+              color: Color(0xFFB9DA8F), //0xFFB9DA8F
               boxShadow: [
                 BoxShadow(
-                  color: Color(0x878787).withOpacity(0.5),
-                  spreadRadius: 0.07,
-                  blurRadius: 3,
-                  offset: Offset(2.0,2.0),
-                )
-              ]
+                  color: Color(0xFFB9DA8F).withOpacity(0.5),
+                  blurRadius: 5,
+                  spreadRadius: 3,
+                ),
+              ],
+            ),
+            padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
           ),
-          width: width * 0.65,
-          height: height * 0.09,
-          child: Center(
-            child: Text("Predictive Analysis",
-                style: GoogleFonts.montserrat(
-                    textStyle: TextStyle(fontSize: 21, color: Colors.black))),
+          leading: GestureDetector(
+            onTap: (){
+              Navigator.pop(context);
+            },
+                      child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: IconButton(
+                
+                icon: Icon(
+                  Icons.arrow_back,
+                  color: Colors.black,
+                ),
+                onPressed: null,
+              ),
+            ),
           ),
         ),
-      ),
       body: Container(
         color: Colors.white,
         child: Column(

@@ -8,15 +8,16 @@ import 'profile_page.dart';
 import 'section2/combine.dart';
 
 class HomePage extends StatelessWidget {
-  double width, height;
+  double width;
+   double height;
   final _foldingCellKey0 = GlobalKey<SimpleFoldingCellState>();
   final _foldingCellKey1 = GlobalKey<SimpleFoldingCellState>();
   final _foldingCellKey2 = GlobalKey<SimpleFoldingCellState>();
 
   @override
   Widget build(BuildContext context) {
-    width = MediaQuery.of(context).size.width;
-    height = MediaQuery.of(context).size.height;
+   final width = MediaQuery.of(context).size.width;
+  final  height = MediaQuery.of(context).size.height;
 
     Container FTop(GlobalKey<SimpleFoldingCellState> key, String t, Widget Function() Page,) {
       return Container(
@@ -151,6 +152,7 @@ class HomePage extends StatelessWidget {
     }
 
     return Scaffold(
+      
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0.0,
@@ -162,11 +164,9 @@ class HomePage extends StatelessWidget {
                       color: Colors.black,
                       fontWeight: FontWeight.w500))),
         ),
-        leading: IconButton(
-          icon: Icon(
-            Icons.blur_circular,
-            color: Colors.black,
-          ),
+        leading: Padding(
+          padding: EdgeInsets.all(8),
+        child: Image.asset("assets/images/logo.png")
         ),
         actions: [
           Padding(

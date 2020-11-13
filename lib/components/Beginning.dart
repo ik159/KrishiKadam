@@ -120,7 +120,7 @@ class _BeginningPageState extends State<BeginningPage> {
   void updateName(String uid) async {
     try {
       CollectionReference userdata =
-          await FirebaseFirestore.instance.collection('userdata');
+           FirebaseFirestore.instance.collection('userdata');
 
       userdata.doc(uid).set({
         'name': _name,

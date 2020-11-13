@@ -23,11 +23,8 @@ void initState() {
   }
   
   Future<void> getCurrentUser() async {
-    final User user = await _auth.currentUser;
+    final User user =  _auth.currentUser;
     final uid = user.uid;
-    // Similarly we can get email as well
-    //final uemail = user.email;
-    CollectionReference users = FirebaseFirestore.instance.collection(uid);
     FirebaseFirestore.instance
     .collection('userdata')
     .doc(uid)

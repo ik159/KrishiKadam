@@ -5,32 +5,14 @@ import './acts.dart';
 import './stats.dart';
 import './schemes.dart';
 import './bottom_nav.dart';
-import './profile_page.dart';
-import 'Home.dart';
 
 
-class AwarenessSection extends StatelessWidget {
+class AwarenessSection extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'KrishiKadam',
-      theme: ThemeData(
-        fontFamily: 'Montserrat',
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: MyHomePage(),
-    );
-  }
+  _AwarenessSectionState createState() => _AwarenessSectionState();
 }
 
-class MyHomePage extends StatefulWidget {
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
+class _AwarenessSectionState extends State<AwarenessSection> {
   double width, height;
 
   @override
@@ -67,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           leading: GestureDetector(
             onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage() ));
+              Navigator.pop(context);
             },
                       child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -86,17 +68,6 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              /*  GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => LoginPage()),
-                );
-              },
-              child: Container(
-                  height: height * 0.3,
-                  child: Image.asset("assets/images/logo.png")),
-            ),*/
               Container(
                 padding: EdgeInsets.only(top: height * 0.15),
                 decoration: BoxDecoration(
@@ -212,51 +183,6 @@ class _MyHomePageState extends State<MyHomePage> {
                               height: height * .20,
                             ),
                           ),
-                          /*Column(
-                            children: [
-                               
-                             
-                              
-                              Card(
-                                elevation: 8,
-                              color: Color(0xFF0C9869).withOpacity(0.95),
-                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                    
-                                      Container(
-                                          padding: EdgeInsets.all(8.0),
-                                          child: Text(
-                                            awareness[index].name,
-                                            style: TextStyle(
-                                              fontSize: 20,
-                                              color: Colors.white,
-                                            ),
-                                          )),
-                                          Container(
-                                            padding: EdgeInsets.all(8.0),
-                                            child: Row(
-                                            
-                                              children: [
-                                                Text("Know More ",
-                                                style: TextStyle(
-                                                  color: Colors.grey[300]
-                                                ),
-                                                ),
-                                                Icon(Icons.arrow_forward_ios , color: Colors.white,size: 10,),
-                                              ],
-                                            ),
-                                          ),
-                                    ],
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),*/
                         ],
                       ),
                     );
