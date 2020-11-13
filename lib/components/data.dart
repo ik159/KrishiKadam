@@ -31,7 +31,7 @@ List<AwarenessInfo> awareness = [
       name: 'Statistics',
       iconImage: 'assets/images/stats.png',
       description:
-          "Statistics and more so",
+          "Information about production of various crops(State-Wise) , land allotment to each crop",
       ),
 ];
 
@@ -161,15 +161,31 @@ class Statistics {
 
 List<Statistics> statistics = [
   Statistics(
-  name : "First Estimate",
+  name : "First Estimate 20-21",
   link: "http://agricoop.nic.in/sites/default/files/FirstEstimate2020-21.pdf"),
   Statistics(
-  name : "First Estimate",
+  name : " Horticultural Statistics at a Glance-2018 ",
+  link: "http://agricoop.nic.in/sites/default/files/Horticulture%20Statistics%20at%20a%20Glance-2018.pdf"),
+  Statistics(
+  name : "Horticulture Crops for 2019-20 ",
   link: "http://agricoop.nic.in/sites/default/files/FirstEstimate2020-21.pdf"),
   Statistics(
-  name : "First Estimate",
-  link: "http://agricoop.nic.in/sites/default/files/FirstEstimate2020-21.pdf"),
+  name : "Horticulture Crops for 2018-19",
+  link: "http://agricoop.nic.in/sites/default/files/2019-20%282nd%20Advance%20Estimates%29%20%281%29.pdf"),
   Statistics(
-  name : "First Estimate",
-  link: "http://agricoop.nic.in/sites/default/files/FirstEstimate2020-21.pdf"),
+  name : "Advance Estimates of crop",
+  link: "http://agricoop.gov.in/sites/default/files/Time-Series-1st-Adv-Estimate-2019-20-Final-Press.pdf"),
+  Statistics(
+  name : "All-in-one Agricultural Stats 2018",
+  link: "http://agricoop.gov.in/sites/default/files/agristatglance2018.pdf"),
+  
+  Statistics(
+  name : " Monthly Reports on Onion, Potato and Tomato for the month of January, 2020. ",
+  link: "http://agricoop.nic.in/sites/default/files/ilovepdf_merged_3.pdf"),
+  Statistics(
+  name : " Monthly Reports on Onion, Potato and Tomato for the month of February, 2020 ",
+  link: "http://agricoop.nic.in/sites/default/files/ilovepdf_merged_2.pdf"),
+  Statistics(
+  name : " Monthly Reports on Onion, Potato and Tomato for the month of March, 2020 ",
+  link: "http://agricoop.nic.in/sites/default/files/ilovepdf_merged%20%281%29.pdf"),
 ];
