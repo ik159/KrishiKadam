@@ -5,7 +5,6 @@ import './acts.dart';
 import './stats.dart';
 import './schemes.dart';
 import './bottom_nav.dart';
-import './profile_page.dart';
 import 'Home.dart';
 
 

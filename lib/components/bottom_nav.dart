@@ -19,12 +19,7 @@ class _BottomNavState extends State<BottomNav> {
   Widget build(BuildContext context) {
     return Container(
       height: widget.height * 0.23,
-      decoration: BoxDecoration(
-        /* borderRadius: BorderRadius.vertical(
-                top: Radius.circular(36.0),
-              ),*/
-        color: Colors.white,
-      ),
+      color: Colors.white,
       padding: const EdgeInsets.all(0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,

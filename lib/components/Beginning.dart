@@ -95,18 +95,18 @@ class _BeginningPageState extends State<BeginningPage> {
           case "ERROR_INVALID_EMAIL":
           case "invalid-email":
             setState(() {
-              errorMess = "Invalid Email";
+              errorMess = "Invalid Email.";
             });
             break;
           case "ERROR_USER_NOT_FOUND":
           case "user-not-found":
             setState(() {
-              errorMess = "No account found with this email";
+              errorMess = "No account found with this email.";
             });
             break;
           case "weak-password":
             setState(() {
-              errorMess = "Password too short";
+              errorMess = "Password too short!";
             });
             break;
           default:
@@ -156,28 +156,30 @@ class _BeginningPageState extends State<BeginningPage> {
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
+          stops: [0.5,1.0],
           colors: [
                   Color(0xFFCFF6FF),
                   Colors.white,
-                  ],
-          
+                  ]
         ),
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: SingleChildScrollView(
-          child: Column(
+            child: Column(
             children: [
+              SizedBox(
+                height: height*0.079,
+              ),
               Container(
                 margin: EdgeInsets.symmetric(vertical: 5),
-                height:
-                    _formType == FormType.login ? height * 0.30 : height * 0.20,
+                height: _formType == FormType.login ? height * 0.30 : height * 0.20,
                 child: Image.asset("assets/images/logo.png"),
               ),
               Container(
                 child: Text(
                   "KrishiKadam",
-                  style: TextStyle(fontSize: 25, color: Colors.black),
+                  style: TextStyle(fontSize: 25, color: Colors.black, fontWeight: FontWeight.w300),
                 ),
               ),
               Container(
@@ -187,7 +189,7 @@ class _BeginningPageState extends State<BeginningPage> {
                 ),
               ),
             ],
-          ),
+        ),
         ),
         bottomNavigationBar: Container(
           color: Colors.transparent,
@@ -213,11 +215,11 @@ class _BeginningPageState extends State<BeginningPage> {
                 cursorColor: Color(0xFF78A143),
                 decoration: InputDecoration(
                     suffixIcon: Icon(Icons.email),
-                    labelText: 'Email',
+                    labelText: 'Email ID',
                     focusedBorder: UnderlineInputBorder(
                         borderSide: BorderSide(color: Color(0xFF78A143)))),
                 validator: (value) =>
-                    value.isEmpty ? 'Email cant be empty' : null,
+                    value.isEmpty ? 'Email cannot be empty.' : null,
                 onSaved: (value) => _email = value,
               ),
               TextFormField(
@@ -229,7 +231,7 @@ class _BeginningPageState extends State<BeginningPage> {
                     focusedBorder: UnderlineInputBorder(
                         borderSide: BorderSide(color: Color(0xFF78A143)))),
                 validator: (value) =>
-                    value.isEmpty ? 'Password cant be empty' : null,
+                    value.isEmpty ? 'Password cannot be empty.' : null,
                 onSaved: (value) => _password = value,
               ),
             ],
@@ -250,7 +252,7 @@ class _BeginningPageState extends State<BeginningPage> {
                     focusedBorder: UnderlineInputBorder(
                         borderSide: BorderSide(color: Color(0xFF78A143)))),
                 validator: (value) =>
-                    value.isEmpty ? 'Name cant be empty' : null,
+                    value.isEmpty ? 'Name cannot be empty' : null,
                 onSaved: (value) => _name = value,
               ),
               TextFormField(
@@ -261,7 +263,7 @@ class _BeginningPageState extends State<BeginningPage> {
                     focusedBorder: UnderlineInputBorder(
                         borderSide: BorderSide(color: Color(0xFF78A143)))),
                 validator: (value) =>
-                    value.isEmpty ? 'Phone cant be empty' : null,
+                    value.isEmpty ? 'Phone number cannot be empty' : null,
                 onSaved: (value) => _phone = value,
               ),
               TextFormField(
@@ -272,7 +274,7 @@ class _BeginningPageState extends State<BeginningPage> {
                     focusedBorder: UnderlineInputBorder(
                         borderSide: BorderSide(color: Color(0xFF78A143)))),
                 validator: (value) =>
-                    value.isEmpty ? 'Email cant be empty' : null,
+                    value.isEmpty ? 'Email cannot be empty' : null,
                 onSaved: (value) => _email = value,
               ),
               TextFormField(
@@ -284,7 +286,7 @@ class _BeginningPageState extends State<BeginningPage> {
                     focusedBorder: UnderlineInputBorder(
                         borderSide: BorderSide(color: Color(0xFF78A143)))),
                 validator: (value) =>
-                    value.isEmpty ? 'Password cant be empty' : null,
+                    value.isEmpty ? 'Password cannot be empty' : null,
                 onSaved: (value) => _password = value,
               ),
             ],
@@ -375,13 +377,13 @@ class _BeginningPageState extends State<BeginningPage> {
           child: RichText(
             text: TextSpan(
               text: 'New Member? ',
-              style: TextStyle(color: Colors.black, fontSize: 12),
+              style: TextStyle(color: Colors.black, fontSize: 14),
               children: <TextSpan>[
                 TextSpan(
                     text: 'Sign Up',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 15,
+                        fontSize: 16,
                         color: Color(0xFF78A143))),
               ],
             ),
@@ -436,13 +438,13 @@ class _BeginningPageState extends State<BeginningPage> {
           child: RichText(
             text: TextSpan(
               text: 'Have an account? ',
-              style: TextStyle(color: Colors.black, fontSize: 12),
+              style: TextStyle(color: Colors.black, fontSize: 14),
               children: <TextSpan>[
                 TextSpan(
                     text: 'Log In',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 15,
+                        fontSize: 16,
                         color: Color(0xFF78A143))),
               ],
             ),
