@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../main.dart';
 import './bottom_nav.dart';
 
@@ -12,27 +13,27 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   double width, height;
   String uid;
-  String name ;
-  String phone ;
+  String name;
+  String phone;
   final FirebaseAuth _auth = FirebaseAuth.instance;
   bool isSwitched = false;
   bool isSwitched2 = false;
   bool isSwitched3 = false;
 
   @override
-void initState() {
-  super.initState();
-  getCurrentUser();
+  void initState() {
+    super.initState();
+    getCurrentUser();
   }
-  
+
   Future<void> getCurrentUser() async {
-    final User user =  _auth.currentUser;
+    final User user = _auth.currentUser;
     final uid = user.uid;
     FirebaseFirestore.instance
-    .collection('userdata')
-    .doc(uid)
-    .get()
-    .then((DocumentSnapshot documentSnapshot) {
+        .collection('userdata')
+        .doc(uid)
+        .get()
+        .then((DocumentSnapshot documentSnapshot) {
       if (documentSnapshot.exists) {
         print('Document data: ${documentSnapshot.data()["phone"]}');
         setState(() {
@@ -53,7 +54,7 @@ void initState() {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        toolbarHeight: height*0.1,
+        toolbarHeight: height * 0.1,
         backgroundColor: Colors.white,
         elevation: 0.0,
         title: Container(
@@ -61,9 +62,9 @@ void initState() {
           child: Center(
             child: Text(
               "Profile",
-              style: TextStyle(
+              style: GoogleFonts.montserrat(
                 fontSize: 19,
-                color: Colors.black, //0xFF78A143
+                color: Colors.black,
               ),
             ),
           ),
@@ -71,10 +72,9 @@ void initState() {
             color: Color(0xFFB9DA8F), //0xFFB9DA8F
             boxShadow: [
               BoxShadow(
-                color: Colors.grey.withOpacity(0.45),
-                blurRadius: 3,
-                offset: Offset(0,5)
-              ),
+                  color: Colors.grey.withOpacity(0.45),
+                  blurRadius: 3,
+                  offset: Offset(0, 5)),
             ],
           ),
           padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
@@ -130,13 +130,19 @@ void initState() {
                   Container(
                     width: width * 0.50,
                     child: Center(
-                  child:   name==null ? Container(height: 12 , width: 12 ,child: CircularProgressIndicator()) :  Text(
-                        name,
-                        style: TextStyle(
-                          fontSize: 17,
-                          color: Colors.black, fontWeight: FontWeight.bold //0xFF78A143
-                        ),
-                      ),
+                      child: name == null
+                          ? Container(
+                              height: 12,
+                              width: 12,
+                              child: CircularProgressIndicator())
+                          : Text(
+                              name,
+                              style: GoogleFonts.montserrat(
+                                  fontSize: 17,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500 //0xFF78A143
+                                  ),
+                            ),
                     ),
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
@@ -161,10 +167,11 @@ void initState() {
                     child: Center(
                       child: Text(
                         "Place",
-                        style: TextStyle(
-                          fontSize: 17,
-                          color: Colors.white, fontWeight: FontWeight.bold //0xFF78A143
-                        ),
+                        style: GoogleFonts.montserrat(
+                            fontSize: 17,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500 //0xFF78A143
+                            ),
                       ),
                     ),
                     decoration: BoxDecoration(
@@ -173,8 +180,7 @@ void initState() {
                         BoxShadow(
                             color: Colors.grey.withOpacity(0.45),
                             blurRadius: 3,
-                            offset: Offset(0,5)
-                        ),
+                            offset: Offset(0, 5)),
                       ],
                     ),
                     padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
@@ -184,10 +190,11 @@ void initState() {
                     child: Center(
                       child: Text(
                         "Manipal",
-                        style: TextStyle(
-                          fontSize: 17,
-                          color: Colors.black, fontWeight: FontWeight.bold //0xFF78A143
-                        ),
+                        style: GoogleFonts.montserrat(
+                            fontSize: 17,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w500 //0xFF78A143
+                            ),
                       ),
                     ),
                     decoration: BoxDecoration(
@@ -213,11 +220,12 @@ void initState() {
                     child: Center(
                       child: Text(
                         "Phone",
-                        style: TextStyle(
-                          fontSize: 17,
-                          color: Colors.white, fontWeight: FontWeight.bold
-                          //0xFF78A143
-                        ),
+                        style: GoogleFonts.montserrat(
+                            fontSize: 17,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500
+                            //0xFF78A143
+                            ),
                       ),
                     ),
                     decoration: BoxDecoration(
@@ -226,8 +234,7 @@ void initState() {
                         BoxShadow(
                             color: Colors.grey.withOpacity(0.45),
                             blurRadius: 3,
-                            offset: Offset(0,5)
-                        ),
+                            offset: Offset(0, 5)),
                       ],
                     ),
                     padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
@@ -235,13 +242,20 @@ void initState() {
                   Container(
                     width: width * 0.50,
                     child: Center(
-               child :  phone == null ? Container(height: 12 , width: 12 ,child: CircularProgressIndicator(),):      Text(
-                        phone,
-                        style: TextStyle(
-                          fontSize: 17,
-                          color: Colors.black, fontWeight: FontWeight.bold //0xFF78A143
-                        ),
-                      ),
+                      child: phone == null
+                          ? Container(
+                              height: 12,
+                              width: 12,
+                              child: CircularProgressIndicator(),
+                            )
+                          : Text(
+                              phone,
+                              style: GoogleFonts.montserrat(
+                                  fontSize: 17,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500 //0xFF78A143
+                                  ),
+                            ),
                     ),
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
@@ -263,7 +277,7 @@ void initState() {
                 child: Center(
                   child: Text(
                     "Sensor Information",
-                    style: TextStyle(
+                    style: GoogleFonts.montserrat(
                       fontSize: 17,
                       color: Colors.black, //0xFF78A143
                     ),
@@ -275,8 +289,7 @@ void initState() {
                     BoxShadow(
                         color: Colors.grey.withOpacity(0.45),
                         blurRadius: 3,
-                        offset: Offset(0,5)
-                    ),
+                        offset: Offset(0, 5)),
                   ],
                 ),
                 padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
@@ -291,14 +304,18 @@ void initState() {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Sensor 1: abcde", style: TextStyle(
-                            fontSize: 15,),),
+                          Text(
+                            "Sensor 1: abcde",
+                            style: GoogleFonts.montserrat(
+                              fontSize: 15,
+                            ),
+                          ),
                           Container(
                             child: Switch(
                               value: isSwitched3,
-                              onChanged: (value){
+                              onChanged: (value) {
                                 setState(() {
-                                  isSwitched3=value;
+                                  isSwitched3 = value;
                                 });
                               },
                               inactiveTrackColor: Colors.red[700],
@@ -315,14 +332,18 @@ void initState() {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Sensor 2: fghij", style: TextStyle(
-                            fontSize: 15,),),
+                          Text(
+                            "Sensor 2: fghij",
+                            style: GoogleFonts.montserrat(
+                              fontSize: 15,
+                            ),
+                          ),
                           Container(
                             child: Switch(
                               value: isSwitched2,
-                              onChanged: (value){
+                              onChanged: (value) {
                                 setState(() {
-                                  isSwitched2=value;
+                                  isSwitched2 = value;
                                 });
                               },
                               inactiveTrackColor: Colors.red[700],
@@ -339,15 +360,18 @@ void initState() {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Sensor 3: klmno",style: TextStyle(
-                        fontSize: 15,),
+                          Text(
+                            "Sensor 3: klmno",
+                            style: GoogleFonts.montserrat(
+                              fontSize: 15,
+                            ),
                           ),
                           Container(
                             child: Switch(
                               value: isSwitched,
-                              onChanged: (value){
+                              onChanged: (value) {
                                 setState(() {
-                                  isSwitched=value;
+                                  isSwitched = value;
                                 });
                               },
                               inactiveTrackColor: Colors.red[700],
@@ -434,7 +458,7 @@ class LogOut extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
               ),
-              onTap: (){
+              onTap: () {
                 Navigator.of(context).pop();
               },
             ),

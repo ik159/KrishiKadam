@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:google_fonts/google_fonts.dart';
 import './data.dart';
 import './acts.dart';
 import './stats.dart';
@@ -47,9 +48,9 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Center(
               child: Text(
                 "Awareness Section",
-                style: TextStyle(
+                style: GoogleFonts.montserrat(
                   fontSize: 19,
-                  color: Colors.black, //0xFF78A143
+                  color: Colors.black,
                 ),
               ),
             ),

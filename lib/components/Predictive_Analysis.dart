@@ -48,10 +48,10 @@ class _sect3State extends State<sect3> {
           child: Center(
             child: Text(
               "Predictive Analysis",
-              style: TextStyle(
-                fontSize: 19,
-                color: Colors.black, //0xFF78A143
-              ),
+              style: GoogleFonts.montserrat(
+              fontSize: 19,
+              color: Colors.black,
+            ),
             ),
           ),
           decoration: BoxDecoration(

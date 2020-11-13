@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:krishikadam/components/section2/crop.dart';
 import 'package:krishikadam/components/section2/soil.dart';
 import '../Home.dart';
@@ -28,51 +29,45 @@ class _ScreenState extends State<Screen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-          backgroundColor: Colors.white,
-          elevation: 0,
-          title: Container(
-            width: width * 0.60,
-            child: Center(
-              child: Text(
-                "Real Time Data",
-                style: TextStyle(
-                  fontSize: 15,
-                  color: Colors.black, //0xFF78A143
-                ),
+        toolbarHeight: height*0.1,
+        backgroundColor: Colors.white,
+        elevation: 0.0,
+        title: Container(
+          width: width * 0.65,
+          child: Center(
+            child: Text(
+              "Real Time Data",
+              style: GoogleFonts.montserrat(
+                fontSize: 19,
+                color: Colors.black,
               ),
             ),
-            decoration: BoxDecoration(
-              color: Color(0xFFB9DA8F), //0xFFB9DA8F
-              boxShadow: [
-                BoxShadow(
-                  color: Color(0xFFB9DA8F).withOpacity(0.5),
-                  blurRadius: 5,
-                  spreadRadius: 3,
-                ),
-              ],
-            ),
-            padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
           ),
-          leading: GestureDetector(
-            onTap: (){
-               Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => HomePage()),
-                  );
-            },
-                      child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: IconButton(
-                
-                icon: Icon(
-                  Icons.arrow_back,
-                  color: Colors.black,
-                ),
-                onPressed: null,
+          decoration: BoxDecoration(
+            color: Color(0xFFB9DA8F), //0xFFB9DA8F
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.grey.withOpacity(0.45),
+                  blurRadius: 3,
+                  offset: Offset(0,5)
               ),
+            ],
+          ),
+          padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+        ),
+        leading: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: IconButton(
+            icon: Icon(
+              Icons.arrow_back,
+              color: Colors.black,
             ),
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()) );
+            },
           ),
         ),
+      ),
       body: SingleChildScrollView(
         child: Center(
           child: Column(
