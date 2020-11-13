@@ -37,17 +37,18 @@ class _MyHomePageState extends State<MyHomePage> {
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
     return Scaffold(
-        backgroundColor: Colors.white, //Color(0xFF0C9869),
+        backgroundColor: Colors.white,
         appBar: AppBar(
+          toolbarHeight: height*0.1,
           backgroundColor: Colors.white,
-          elevation: 0,
+          elevation: 0.0,
           title: Container(
-            width: width * 0.60,
+            width: width * 0.65,
             child: Center(
               child: Text(
-                "Documents",
+                "Awareness Section",
                 style: TextStyle(
-                  fontSize: 15,
+                  fontSize: 19,
                   color: Colors.black, //0xFF78A143
                 ),
               ),
@@ -56,54 +57,33 @@ class _MyHomePageState extends State<MyHomePage> {
               color: Color(0xFFB9DA8F), //0xFFB9DA8F
               boxShadow: [
                 BoxShadow(
-                  color: Color(0xFFB9DA8F).withOpacity(0.5),
-                  blurRadius: 5,
-                  spreadRadius: 3,
+                    color: Colors.grey.withOpacity(0.45),
+                    blurRadius: 3,
+                    offset: Offset(0,5)
                 ),
               ],
             ),
             padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
           ),
-          leading: GestureDetector(
-            onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage() ));
-            },
-                      child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: IconButton(
-                
-                icon: Icon(
-                  Icons.arrow_back,
-                  color: Colors.black,
-                ),
-                onPressed: null,
+          leading: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: IconButton(
+              icon: Icon(
+                Icons.arrow_back,
+                color: Colors.black,
               ),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()) );
+              },
             ),
           ),
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              /*  GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => LoginPage()),
-                );
-              },
+        body: Column(
+          children: [
+            Expanded(
               child: Container(
-                  height: height * 0.3,
-                  child: Image.asset("assets/images/logo.png")),
-            ),*/
-              Container(
-                padding: EdgeInsets.only(top: height * 0.15),
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(30.0),
-                        topLeft: Radius.circular(30.0))),
-                height: height * .50,
+                padding: EdgeInsets.only(top: height * 0.02),
+                color: Colors.white,
                 child: Swiper(
                   itemCount: awareness.length,
                   itemWidth: width * 0.8,
@@ -132,19 +112,15 @@ class _MyHomePageState extends State<MyHomePage> {
                       },
                       child: Stack(
                         children: [
-                          Container(
-                            height: height * .36,
-                          ),
                           Positioned(
                             top: height * .16,
                             left: 0,
                             child: Container(
                               width: width * 0.8,
+                              height: height*0.4,
                               child: Card(
                                 elevation: 8,
-
-                                color: Color(0xFFB9DA8F)
-                                    .withOpacity(0.95), //0xFF0C9869
+                                color: Color(0xFFB9DA8F),
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20)),
                                 child: Padding(
@@ -154,8 +130,6 @@ class _MyHomePageState extends State<MyHomePage> {
                                         MainAxisAlignment.spaceAround,
                                     children: [
                                       Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
@@ -169,21 +143,14 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 ),
                                               )),
                                           Container(
+                                            height: height*0.2,
+                                            width: width*0.6,
                                             padding: EdgeInsets.all(8.0),
-                                            child: Row(
-                                              children: [
-                                                Text(
-                                                  "Know More ",
-                                                  style: TextStyle(
-                                                      color:
-                                                          Colors.red.shade700),
-                                                ),
-                                                Icon(
-                                                  Icons.arrow_forward_ios,
-                                                  color: Colors.red.shade500,
-                                                  size: 10,
-                                                ),
-                                              ],
+                                            child: Text(
+                                              awareness[index].description,
+                                              style: TextStyle(
+                                                  color:
+                                                      Colors.black),
                                             ),
                                           ),
                                         ],
@@ -192,7 +159,6 @@ class _MyHomePageState extends State<MyHomePage> {
                                         child: Text((index + 1).toString(),
                                             style: TextStyle(
                                               color: Color(0xFF78A143).withOpacity(0.6),
-                                                  
                                               fontSize: 35,
                                             )),
                                       ),
@@ -211,59 +177,14 @@ class _MyHomePageState extends State<MyHomePage> {
                               height: height * .20,
                             ),
                           ),
-                          /*Column(
-                            children: [
-                               
-                             
-                              
-                              Card(
-                                elevation: 8,
-                              color: Color(0xFF0C9869).withOpacity(0.95),
-                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                    
-                                      Container(
-                                          padding: EdgeInsets.all(8.0),
-                                          child: Text(
-                                            awareness[index].name,
-                                            style: TextStyle(
-                                              fontSize: 20,
-                                              color: Colors.white,
-                                            ),
-                                          )),
-                                          Container(
-                                            padding: EdgeInsets.all(8.0),
-                                            child: Row(
-                                            
-                                              children: [
-                                                Text("Know More ",
-                                                style: TextStyle(
-                                                  color: Colors.grey[300]
-                                                ),
-                                                ),
-                                                Icon(Icons.arrow_forward_ios , color: Colors.white,size: 10,),
-                                              ],
-                                            ),
-                                          ),
-                                    ],
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),*/
                         ],
                       ),
                     );
                   },
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
         bottomNavigationBar: BottomNav(
           height: height,

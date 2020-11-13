@@ -261,7 +261,7 @@ class HomePage extends StatelessWidget {
                       frontWidget: FTop(_foldingCellKey2, "Predictive Analysis",
                           () => sect3()),
                       innerTopWidget: ITop(
-                          _foldingCellKey2, "Useful tool to plan for the future of care accordingly for your crops and soil according to the predictions made by our models."),
+                          _foldingCellKey2, "Useful tool to plan future care for your crops and soil according to the predictions made by our models."),
                       innerBottomWidget: IBottom(
                           _foldingCellKey2, "Combines real time data and known information about the crop/soil used to give predictions about the life and requirements of the crop!"),
                     ),

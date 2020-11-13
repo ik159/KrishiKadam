@@ -1,15 +1,17 @@
-class AwarenessInfo {
+class AwarenessInfo
+{
   final int position;
   final String name;
   final String iconImage;
   final String description;
 
   AwarenessInfo(
-    this.position, {
-    this.name,
-    this.iconImage,
-    this.description,
-  });
+    this.position,
+      {
+        this.name,
+        this.iconImage,
+        this.description,
+      });
 }
 
 List<AwarenessInfo> awareness = [
@@ -17,19 +19,19 @@ List<AwarenessInfo> awareness = [
       name: 'Acts and Rules',
       iconImage: 'assets/images/doc.png',
       description:
-          "Zipping around the suth's moon. Because its so",
-     ),
+          "The rights and duties of the farmers as proposed by the government",
+  ),
   AwarenessInfo(2,
       name: 'Schemes',
       iconImage: 'assets/images/info.png',
       description:
-          "The second hat  spins slowly  of the other planets.",
-      ),
+          "Important update on schemes and more so",
+  ),
   AwarenessInfo(3,
       name: 'Statistics',
       iconImage: 'assets/images/stats.png',
       description:
-          "The third planean 18 miles per second (29 km per second).",
+          "Statistics and more so",
       ),
 ];
 

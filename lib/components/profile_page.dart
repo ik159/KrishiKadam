@@ -15,6 +15,9 @@ class _ProfilePageState extends State<ProfilePage> {
   String name ;
   String phone ;
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  bool isSwitched = false;
+  bool isSwitched2 = false;
+  bool isSwitched3 = false;
 
   @override
 void initState() {
@@ -44,7 +47,6 @@ void initState() {
       }
     });
     print(uid);
-    //print(uemail);
   }
 
   @override
@@ -52,17 +54,18 @@ void initState() {
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: Colors.white, //Color(0xFF0C9869),
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        toolbarHeight: height*0.1,
         backgroundColor: Colors.white,
-        elevation: 0,
+        elevation: 0.0,
         title: Container(
           width: width * 0.60,
           child: Center(
             child: Text(
               "Profile",
               style: TextStyle(
-                fontSize: 15,
+                fontSize: 19,
                 color: Colors.black, //0xFF78A143
               ),
             ),
@@ -71,9 +74,9 @@ void initState() {
             color: Color(0xFFB9DA8F), //0xFFB9DA8F
             boxShadow: [
               BoxShadow(
-                color: Color(0xFFB9DA8F).withOpacity(0.5),
-                blurRadius: 5,
-                spreadRadius: 3,
+                color: Colors.grey.withOpacity(0.45),
+                blurRadius: 3,
+                offset: Offset(0,5)
               ),
             ],
           ),
@@ -83,7 +86,7 @@ void initState() {
           padding: const EdgeInsets.all(8.0),
           child: IconButton(
             icon: Icon(
-              Icons.arrow_back_ios,
+              Icons.arrow_back,
               color: Colors.black,
             ),
             onPressed: () {
@@ -125,7 +128,7 @@ void initState() {
                     ),
                     decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        border: Border.all(color: Colors.black, width: 3.0)),
+                        border: Border.all(color: Colors.black, width: 2.0)),
                   ),
                   Container(
                     width: width * 0.50,
@@ -133,20 +136,18 @@ void initState() {
                   child:   name==null ? Container(height: 12 , width: 12 ,child: CircularProgressIndicator()) :  Text(
                         name,
                         style: TextStyle(
-                          fontSize: 15,
-                          color: Colors.black.withOpacity(0.6), //0xFF78A143
+                          fontSize: 17,
+                          color: Colors.black, fontWeight: FontWeight.bold //0xFF78A143
                         ),
                       ),
                     ),
                     decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment(-1, -1),
+                        end: Alignment(-1, -0.8),
+                        colors: [Colors.grey, Color(0xFFB9DA8F)],
+                      ),
                       color: Color(0xFFB9DA8F), //0xFFB9DA8F
-                      boxShadow: [
-                        BoxShadow(
-                          color: Color(0xFFB9DA8F).withOpacity(0.5),
-                          blurRadius: 5,
-                          spreadRadius: 3,
-                        ),
-                      ],
                     ),
                     padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
                   ),
@@ -164,8 +165,8 @@ void initState() {
                       child: Text(
                         "Place",
                         style: TextStyle(
-                          fontSize: 15,
-                          color: Colors.white, //0xFF78A143
+                          fontSize: 17,
+                          color: Colors.white, fontWeight: FontWeight.bold //0xFF78A143
                         ),
                       ),
                     ),
@@ -173,9 +174,9 @@ void initState() {
                       color: Color(0xFFB9DA8F), //0xFFB9DA8F
                       boxShadow: [
                         BoxShadow(
-                          color: Color(0xFFB9DA8F).withOpacity(0.5),
-                          blurRadius: 5,
-                          spreadRadius: 3,
+                            color: Colors.grey.withOpacity(0.45),
+                            blurRadius: 3,
+                            offset: Offset(0,5)
                         ),
                       ],
                     ),
@@ -187,20 +188,18 @@ void initState() {
                       child: Text(
                         "Manipal",
                         style: TextStyle(
-                          fontSize: 15,
-                          color: Colors.black.withOpacity(0.6), //0xFF78A143
+                          fontSize: 17,
+                          color: Colors.black, fontWeight: FontWeight.bold //0xFF78A143
                         ),
                       ),
                     ),
                     decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment(-1, -1),
+                        end: Alignment(-1, -0.8),
+                        colors: [Colors.grey, Color(0xFFB9DA8F)],
+                      ),
                       color: Color(0xFFB9DA8F), //0xFFB9DA8F
-                      boxShadow: [
-                        BoxShadow(
-                          color: Color(0xFFB9DA8F).withOpacity(0.5),
-                          blurRadius: 5,
-                          spreadRadius: 3,
-                        ),
-                      ],
                     ),
                     padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
                   ),
@@ -218,8 +217,9 @@ void initState() {
                       child: Text(
                         "Phone",
                         style: TextStyle(
-                          fontSize: 15,
-                          color: Colors.white, //0xFF78A143
+                          fontSize: 17,
+                          color: Colors.white, fontWeight: FontWeight.bold
+                          //0xFF78A143
                         ),
                       ),
                     ),
@@ -227,9 +227,9 @@ void initState() {
                       color: Color(0xFFB9DA8F), //0xFFB9DA8F
                       boxShadow: [
                         BoxShadow(
-                          color: Color(0xFFB9DA8F).withOpacity(0.5),
-                          blurRadius: 5,
-                          spreadRadius: 3,
+                            color: Colors.grey.withOpacity(0.45),
+                            blurRadius: 3,
+                            offset: Offset(0,5)
                         ),
                       ],
                     ),
@@ -241,20 +241,18 @@ void initState() {
                child :  phone == null ? Container(height: 12 , width: 12 ,child: CircularProgressIndicator(),):      Text(
                         phone,
                         style: TextStyle(
-                          fontSize: 15,
-                          color: Colors.black.withOpacity(0.6), //0xFF78A143
+                          fontSize: 17,
+                          color: Colors.black, fontWeight: FontWeight.bold //0xFF78A143
                         ),
                       ),
                     ),
                     decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment(-1, -1),
+                        end: Alignment(-1, -0.8),
+                        colors: [Colors.grey, Color(0xFFB9DA8F)],
+                      ),
                       color: Color(0xFFB9DA8F), //0xFFB9DA8F
-                      boxShadow: [
-                        BoxShadow(
-                          color: Color(0xFFB9DA8F).withOpacity(0.5),
-                          blurRadius: 5,
-                          spreadRadius: 3,
-                        ),
-                      ],
                     ),
                     padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
                   ),
@@ -269,8 +267,8 @@ void initState() {
                   child: Text(
                     "Sensor Information",
                     style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.black.withOpacity(0.6), //0xFF78A143
+                      fontSize: 17,
+                      color: Colors.black, //0xFF78A143
                     ),
                   ),
                 ),
@@ -278,9 +276,9 @@ void initState() {
                   color: Color(0xFFB9DA8F), //0xFFB9DA8F
                   boxShadow: [
                     BoxShadow(
-                      color: Color(0xFFB9DA8F).withOpacity(0.5),
-                      blurRadius: 5,
-                      spreadRadius: 3,
+                        color: Colors.grey.withOpacity(0.45),
+                        blurRadius: 3,
+                        offset: Offset(0,5)
                     ),
                   ],
                 ),
@@ -292,51 +290,73 @@ void initState() {
                 child: Column(
                   children: [
                     Container(
-                      width: width * 0.7,
+                      width: width * 0.8,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Water Spray"),
+                          Text("Sensor 1: abcde", style: TextStyle(
+                            fontSize: 15,),),
                           Container(
                             child: Switch(
-                              onChanged: null,
-                              value: false,
-                              inactiveThumbColor: Colors.grey[300],
-                              inactiveTrackColor: Colors.red.shade700,
+                              value: isSwitched3,
+                              onChanged: (value){
+                                setState(() {
+                                  isSwitched3=value;
+                                });
+                              },
+                              inactiveTrackColor: Colors.red[700],
+                              inactiveThumbColor: Colors.grey[200],
+                              activeTrackColor: Color(0xFFB9DA8F),
+                              activeColor: Colors.grey[200],
                             ),
                           ),
                         ],
                       ),
                     ),
                     Container(
-                      width: width * 0.7,
+                      width: width * 0.8,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Temperature"),
+                          Text("Sensor 2: fghij", style: TextStyle(
+                            fontSize: 15,),),
                           Container(
                             child: Switch(
-                              onChanged: null,
-                              value: false,
-                              inactiveThumbColor: Colors.grey[300],
-                              inactiveTrackColor: Colors.red.shade700,
+                              value: isSwitched2,
+                              onChanged: (value){
+                                setState(() {
+                                  isSwitched2=value;
+                                });
+                              },
+                              inactiveTrackColor: Colors.red[700],
+                              inactiveThumbColor: Colors.grey[200],
+                              activeTrackColor: Color(0xFFB9DA8F),
+                              activeColor: Colors.grey[200],
                             ),
                           ),
                         ],
                       ),
                     ),
                     Container(
-                      width: width * 0.7,
+                      width: width * 0.8,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Humidity"),
+                          Text("Sensor 3: klmno",style: TextStyle(
+                        fontSize: 15,),
+                          ),
                           Container(
                             child: Switch(
-                              onChanged: null,
-                              value: false,
-                              inactiveThumbColor: Colors.grey[300],
-                              inactiveTrackColor: Colors.red.shade700,
+                              value: isSwitched,
+                              onChanged: (value){
+                                setState(() {
+                                  isSwitched=value;
+                                });
+                              },
+                              inactiveTrackColor: Colors.red[700],
+                              inactiveThumbColor: Colors.grey[200],
+                              activeTrackColor: Color(0xFFB9DA8F),
+                              activeColor: Colors.grey[200],
                             ),
                           ),
                         ],
@@ -367,7 +387,7 @@ class LogOut extends StatelessWidget {
         children: <Widget>[
           Icon(
             Icons.error,
-            size: 80.0,
+            size: 75.0,
             color: Colors.red.shade700,
           ),
           Text(
@@ -387,9 +407,6 @@ class LogOut extends StatelessWidget {
                 padding: EdgeInsets.only(top: 15.0, bottom: 20.0),
                 decoration: BoxDecoration(
                   color: Color(0xFF78A143),
-                  borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(32.0),
-                      bottomRight: Radius.circular(32.0)),
                 ),
                 child: Text(
                   "Log Out",
@@ -403,6 +420,25 @@ class LogOut extends StatelessWidget {
                   context,
                   MaterialPageRoute(builder: (_) => MyApp()),
                 );
+              },
+            ),
+            InkWell(
+              child: Container(
+                padding: EdgeInsets.only(top: 15.0, bottom: 20.0),
+                decoration: BoxDecoration(
+                  color: Color(0xFF78A143),
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(32.0),
+                      bottomRight: Radius.circular(32.0)),
+                ),
+                child: Text(
+                  "Go Back",
+                  style: TextStyle(color: Colors.white),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              onTap: (){
+                Navigator.of(context).pop();
               },
             ),
           ],

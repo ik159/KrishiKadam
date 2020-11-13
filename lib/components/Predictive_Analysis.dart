@@ -40,39 +40,42 @@ class _sect3State extends State<sect3> {
 
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: height*0.1,
         backgroundColor: Colors.white,
         elevation: 0.0,
-        leading: IconButton(
-          onPressed: (){
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => HomePage()),
-            );
-          },
-          icon: Icon(
-            Icons.arrow_back,
-            color: Colors.black,
-          ),
-        ),
         title: Container(
-          decoration: BoxDecoration(
-              color: Color(0xFFB9DA8F),
-              boxShadow: [
-                BoxShadow(
-                  color: Color(0x878787).withOpacity(0.5),
-                  spreadRadius: 0.07,
-                  blurRadius: 3,
-                  offset: Offset(2.0,2.0),
-                )
-              ]
-          ),
           width: width * 0.65,
-          height: height * 0.09,
           child: Center(
-            child: Text("Predictive Analysis",
-                style: GoogleFonts.montserrat(
-                    textStyle: TextStyle(fontSize: 21, color: Colors.black))),
+            child: Text(
+              "Predictive Analysis",
+              style: TextStyle(
+                fontSize: 19,
+                color: Colors.black, //0xFF78A143
+              ),
+            ),
+          ),
+          decoration: BoxDecoration(
+            color: Color(0xFFB9DA8F), //0xFFB9DA8F
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.grey.withOpacity(0.45),
+                  blurRadius: 3,
+                  offset: Offset(0,5)
+              ),
+            ],
+          ),
+          padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+        ),
+        leading: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: IconButton(
+            icon: Icon(
+              Icons.arrow_back,
+              color: Colors.black,
+            ),
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()) );
+            },
           ),
         ),
       ),
