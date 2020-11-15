@@ -117,8 +117,8 @@ class _ProfilePageState extends State<ProfilePage> {
                 children: [
                   Container(
                     child: ClipOval(
-                      child: Image.asset(
-                        'assets/images/stats.png',
+                      child: Image.network(
+                        'https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg',
                         width: width * 0.3,
                         fit: BoxFit.cover,
                       ),
@@ -305,7 +305,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "Sensor 1: abcde",
+                            "Sensor 1: Soil",
                             style: GoogleFonts.montserrat(
                               fontSize: 15,
                             ),
@@ -333,7 +333,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "Sensor 2: fghij",
+                            "Sensor 2: Water",
                             style: GoogleFonts.montserrat(
                               fontSize: 15,
                             ),
@@ -361,7 +361,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "Sensor 3: klmno",
+                            "Sensor 3: ",
                             style: GoogleFonts.montserrat(
                               fontSize: 15,
                             ),
