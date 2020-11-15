@@ -16,6 +16,7 @@ class _BeginningPageState extends State<BeginningPage> {
   String _password;
   String _name;
   String _phone;
+  String _city;
 
   FormType _formType = FormType.login;
   String errorMess;
@@ -125,6 +126,7 @@ class _BeginningPageState extends State<BeginningPage> {
       userdata.doc(uid).set({
         'name': _name,
         'phone': _phone,
+        'city': _city,
       });
     } catch (e) {
       print(e.message);
@@ -169,11 +171,11 @@ class _BeginningPageState extends State<BeginningPage> {
             child: Column(
             children: [
               SizedBox(
-                height: height*0.079,
+                height: height*0.02,
               ),
               Container(
                 margin: EdgeInsets.symmetric(vertical: 5),
-                height: _formType == FormType.login ? height * 0.30 : height * 0.20,
+                height: _formType == FormType.login ? height * 0.30 : height * 0.15,
                 child: Image.asset("assets/images/logo.png"),
               ),
               Container(
@@ -256,21 +258,34 @@ class _BeginningPageState extends State<BeginningPage> {
                 onSaved: (value) => _name = value,
               ),
               TextFormField(
+                keyboardType: TextInputType.number,
                 cursorColor: Color(0xFF78A143),
                 decoration: InputDecoration(
                     suffixIcon: Icon(Icons.phone),
                     labelText: 'Phone Number',
                     focusedBorder: UnderlineInputBorder(
                         borderSide: BorderSide(color: Color(0xFF78A143)))),
-                validator: (value) =>
-                    value.isEmpty ? 'Phone number cannot be empty' : null,
+                validator: (value) => (value.isEmpty || value.length != 10 ) ? 'Enter 10 digit Phone No.' : null,
+                    
                 onSaved: (value) => _phone = value,
+              ),
+              TextFormField(
+                
+                cursorColor: Color(0xFF78A143),
+                decoration: InputDecoration(
+                    suffixIcon: Icon(Icons.location_city),
+                    labelText: 'City',
+                    focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Color(0xFF78A143)))),
+                validator: (value) =>
+                    value.isEmpty ? 'City cannot be empty' : null,
+                onSaved: (value) => _city = value,
               ),
               TextFormField(
                 cursorColor: Color(0xFF78A143),
                 decoration: InputDecoration(
                     suffixIcon: Icon(Icons.email),
-                    labelText: 'Email',
+                    labelText: 'Email ID',
                     focusedBorder: UnderlineInputBorder(
                         borderSide: BorderSide(color: Color(0xFF78A143)))),
                 validator: (value) =>

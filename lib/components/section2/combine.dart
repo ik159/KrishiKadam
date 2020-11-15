@@ -68,70 +68,74 @@ class _ScreenState extends State<Screen> {
           ),
         ),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Text(
-            'Soil',
-            style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.w500,
-                fontSize: 25.0),
-          ),
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Soil()),
-              );
-            },
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                  vertical: 15.0, horizontal: 20.0),
-              child: Container(
-                height: height * .20,
-                width: 320,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  image: DecorationImage(
-                    image: AssetImage('assets/images/soil.jpg'),
-                    fit: BoxFit.cover,
+      body: SingleChildScrollView(
+              child: Center(
+                child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Text(
+                'Soil',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 25.0),
+            ),
+            GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Soil()),
+                  );
+                },
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 15.0, horizontal: 20.0),
+                  child: Container(
+                    height: height * .20,
+                    width: width * 0.75,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/soil.jpg'),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
                 ),
-              ),
             ),
-          ),
-          Text(
-            ' Crop',
-            style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.w500,
-                fontSize: 25.0),
-          ),
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Crop()),
-              );
-            },
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                  vertical: 15.0, horizontal: 20.0),
-              child: Container(
-                height: height * 0.20,
-                width: 320,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  image: DecorationImage(
-                    image: AssetImage('assets/images/crops.jpg'),
-                    fit: BoxFit.cover,
+            Text(
+                ' Crop',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 25.0),
+            ),
+            GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Crop()),
+                  );
+                },
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 15.0, horizontal: 20.0),
+                  child: Container(
+                    height: height * 0.20,
+                    width: width * 0.75,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/crops.jpg'),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
                 ),
-              ),
             ),
-          ),
-        ],
+          ],
+        ),
+              ),
       ),
       bottomNavigationBar: BottomNav(
         height: height,

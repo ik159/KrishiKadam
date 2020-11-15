@@ -15,6 +15,7 @@ class _ProfilePageState extends State<ProfilePage> {
   String uid;
   String name;
   String phone;
+  String city;
   final FirebaseAuth _auth = FirebaseAuth.instance;
   bool isSwitched = false;
   bool isSwitched2 = false;
@@ -39,6 +40,7 @@ class _ProfilePageState extends State<ProfilePage> {
         setState(() {
           name = documentSnapshot.data()["name"];
           phone = documentSnapshot.data()["phone"];
+          city = documentSnapshot.data()["city"];
         });
       } else {
         print('Document does not exist on the database');
@@ -188,14 +190,19 @@ class _ProfilePageState extends State<ProfilePage> {
                   Container(
                     width: width * 0.50,
                     child: Center(
-                      child: Text(
-                        "Manipal",
-                        style: GoogleFonts.montserrat(
-                            fontSize: 17,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500 //0xFF78A143
+                      child: city == null
+                          ? Container(
+                              height: 12,
+                              width: 12,
+                              child: CircularProgressIndicator())
+                          : Text(
+                              city,
+                              style: GoogleFonts.montserrat(
+                                  fontSize: 17,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500 //0xFF78A143
+                                  ),
                             ),
-                      ),
                     ),
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
