@@ -3,6 +3,8 @@ import 'package:custom_switch/custom_switch.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../bottom_nav.dart';
 import 'combine.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import '../data.dart';
 class Soil extends StatefulWidget {
   @override
   _SoilState createState() => _SoilState();
@@ -10,6 +12,21 @@ class Soil extends StatefulWidget {
 
 class _SoilState extends State<Soil> {
   double width, height;
+  int langint;
+  getIntValuesSF() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  int boolValue = prefs.getInt('intValue') ?? 0;
+  print(boolValue);
+  setState(() {
+    langint = boolValue;
+  });
+}
+
+@override
+  void initState() {
+    super.initState();
+    getIntValuesSF();
+  }
   @override
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
@@ -24,7 +41,7 @@ class _SoilState extends State<Soil> {
           width: width * 0.65,
           child: Center(
             child: Text(
-              "Soil Information",
+              soil[langint],
               style: GoogleFonts.montserrat(
                 fontSize: 19,
                 color: Colors.black,

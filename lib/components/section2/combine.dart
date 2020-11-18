@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:krishikadam/components/data.dart';
 import 'package:krishikadam/components/section2/crop.dart';
 import 'package:krishikadam/components/section2/soil.dart';
 import '../Home.dart';
 import '../bottom_nav.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 class sect2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,21 @@ class Screen extends StatefulWidget {
 
 class _ScreenState extends State<Screen> {
   double width, height;
+int langint;
+  getIntValuesSF() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  int boolValue = prefs.getInt('intValue') ?? 0;
+  print(boolValue);
+  setState(() {
+    langint = boolValue;
+  });
+}
 
+@override
+  void initState() {
+    super.initState();
+    getIntValuesSF();
+  }
   @override
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
@@ -36,7 +51,7 @@ class _ScreenState extends State<Screen> {
           width: width * 0.65,
           child: Center(
             child: Text(
-              "Real Time Data",
+              realtimetitle[langint],
               style: GoogleFonts.montserrat(
                 fontSize: 19,
                 color: Colors.black,
@@ -77,7 +92,7 @@ class _ScreenState extends State<Screen> {
                 height: 15,
               ),
               Text(
-                'Soil',
+                soil[langint],
                 style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w500,
@@ -107,7 +122,7 @@ class _ScreenState extends State<Screen> {
                 ),
               ),
               Text(
-                ' Crop',
+                crop[langint],
                 style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w500,

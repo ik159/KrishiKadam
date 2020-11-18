@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:krishikadam/components/data.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:krishikadam/components/bottom_nav.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 class SchemesPage extends StatefulWidget {
   @override
   _SchemesPageState createState() => _SchemesPageState();
@@ -11,7 +11,21 @@ class SchemesPage extends StatefulWidget {
 
 class _SchemesPageState extends State<SchemesPage> {
   double width, height;
+int langint;
+  getIntValuesSF() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  int boolValue = prefs.getInt('intValue') ?? 0;
+  print(boolValue);
+  setState(() {
+    langint = boolValue;
+  });
+}
 
+@override
+  void initState() {
+    super.initState();
+    getIntValuesSF();
+  }
   @override
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
@@ -23,14 +37,14 @@ class _SchemesPageState extends State<SchemesPage> {
           backgroundColor: Colors.white,
           elevation: 0,
           centerTitle: true,
-          title: Text("Schemes" , style: GoogleFonts.montserrat(color: Colors.black, fontSize: 22),),
+          title: Text(schemestitle[langint] , style: GoogleFonts.montserrat(color: Colors.black, fontSize: 22),),
           leading: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Image.asset("assets/images/logo.png"),
           ),
         ),
         body:  ListView.builder(
-            itemCount: schemes.length,
+            itemCount: schemes[langint].lang.length,
             itemBuilder: (context, index) {
               return Container(
                   decoration: BoxDecoration(
@@ -39,12 +53,12 @@ class _SchemesPageState extends State<SchemesPage> {
                   child: ListTile(title: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 5.0),
                     child: Text(
-                      schemes[index].name,
+                      schemes[langint].lang[index].name,
                       style: GoogleFonts.montserrat(color: Colors.black.withOpacity(0.6)),
                     ),
                   ),
                     trailing: IconButton(icon: Icon(Icons.open_in_new , color: Colors.black87 , size: 20,), onPressed: (){
-                      launch(schemes[index].link);
+                      launch(schemes[langint].lang[index].name,);
                     },),
                   ),
               );

@@ -3,7 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'Home.dart';
 import 'bottom_nav.dart';
-
+import './data.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 class sect3 extends StatefulWidget {
   @override
   _sect3State createState() => _sect3State();
@@ -11,7 +12,21 @@ class sect3 extends StatefulWidget {
 
 class _sect3State extends State<sect3> {
   double width, height;
+int langint;
+  getIntValuesSF() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  int boolValue = prefs.getInt('intValue') ?? 0;
+  print(boolValue);
+  setState(() {
+    langint = boolValue;
+  });
+}
 
+@override
+  void initState() {
+    super.initState();
+    getIntValuesSF();
+  }
   Container buildkey(String t) {
     return Container(
       color: Colors.white,
@@ -19,7 +34,7 @@ class _sect3State extends State<sect3> {
         trailing: Padding(
           padding: EdgeInsets.only(right: width*0.06),
           child:
-          Text("<Analysis> ",
+          Text(analysis[langint],
               style: GoogleFonts.montserrat(
                   textStyle: TextStyle(fontSize: 18, color: Colors.black))),
         ),
@@ -47,7 +62,7 @@ class _sect3State extends State<sect3> {
           width: width * 0.65,
           child: Center(
             child: Text(
-              "Predictive Analysis",
+              predititle[langint],
               style: GoogleFonts.montserrat(
               fontSize: 19,
               color: Colors.black,
@@ -89,7 +104,7 @@ class _sect3State extends State<sect3> {
                 children: [
                   Container(
                     child: Center(child:
-                    Text("Plant",
+                    Text(crop[langint],
                         style: GoogleFonts.montserrat(
                             textStyle: TextStyle(fontSize: 19, color: Colors.black))),
                     ),
@@ -109,7 +124,7 @@ class _sect3State extends State<sect3> {
                   ),
                   Container(
                     child: Center(child:
-                    Text("<Chosen Plant>",
+                    Text(chosencrop[langint],
                         style: GoogleFonts.montserrat(
                             textStyle: TextStyle(fontSize: 18, color: Colors.white))),
                     ),
@@ -132,10 +147,10 @@ class _sect3State extends State<sect3> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    buildkey("Water required"),
-                    buildkey("Infections"),
-                    buildkey("Harvest time"),
-                    buildkey("Additional"),
+                    buildkey(waterreq[langint]),
+                    buildkey(infections[langint]),
+                    buildkey(harvesttime[langint]),
+                    buildkey(additional[langint]),
                   ],
                 ),
               ),

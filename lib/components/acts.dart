@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:krishikadam/components/data.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:krishikadam/components/bottom_nav.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 class ActsnRules extends StatefulWidget {
   @override
   _ActsnRulesState createState() => _ActsnRulesState();
@@ -11,6 +11,21 @@ class ActsnRules extends StatefulWidget {
 
 class _ActsnRulesState extends State<ActsnRules> {
   double width, height;
+  int langint;
+  getIntValuesSF() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  int boolValue = prefs.getInt('intValue') ?? 0;
+  print(boolValue);
+  setState(() {
+    langint = boolValue;
+  });
+}
+
+@override
+  void initState() {
+    super.initState();
+    getIntValuesSF();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,14 +38,14 @@ class _ActsnRulesState extends State<ActsnRules> {
         backgroundColor: Colors.white,
         elevation: 0,
         centerTitle: true,
-        title: Text("Acts and Rules" , style: GoogleFonts.montserrat(color: Colors.black, fontSize: 22), ),
+        title: Text(actstitle[langint] , style: GoogleFonts.montserrat(color: Colors.black, fontSize: 22), ),
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Image.asset("assets/images/logo.png"),
         ),
       ),
       body:  ListView.builder(
-            itemCount: acts.length,
+            itemCount: acts[langint].lang.length,
             itemBuilder: (context, index) {
         return Container(
           decoration: BoxDecoration(
@@ -39,12 +54,12 @@ class _ActsnRulesState extends State<ActsnRules> {
           child: ListTile(title: Padding(
             padding: const EdgeInsets.symmetric(vertical: 5.0),
             child: Text(
-                acts[index].name,
+                acts[langint].lang[index].name,
                 style: GoogleFonts.montserrat(color: Colors.black.withOpacity(0.6)),
               ),
           ),
             trailing: IconButton(icon: Icon(Icons.open_in_new , color: Colors.black87 , size: 20,), onPressed: (){
-              launch(acts[index].link);
+              launch(acts[langint].lang[index].iconImage,);
             },),
             ),
         ); 

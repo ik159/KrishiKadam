@@ -7,8 +7,13 @@ import './stats.dart';
 import './schemes.dart';
 import './bottom_nav.dart';
 import 'Home.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+class AwarenessSection extends StatefulWidget {
+  @override
+  _AwarenessSectionState createState() => _AwarenessSectionState();
+}
 
-class AwarenessSection extends StatelessWidget {
+class _AwarenessSectionState extends State<AwarenessSection> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -31,7 +36,21 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   double width, height;
+  int langint;
+  getIntValuesSF() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  int boolValue = prefs.getInt('intValue') ?? 0;
+  print(boolValue);
+  setState(() {
+    langint = boolValue;
+  });
+}
 
+@override
+  void initState() {
+    super.initState();
+    getIntValuesSF();
+  }
   @override
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
@@ -46,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
             width: width * 0.65,
             child: Center(
               child: Text(
-                "Awareness Section",
+                awarenesstitle[langint],
                 style: GoogleFonts.montserrat(
                   fontSize: 19,
                   color: Colors.black,
@@ -84,7 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Container(
                 padding: EdgeInsets.all(12),
                 child: Swiper(
-                  itemCount: awareness.length,
+                  itemCount: awareinfo[0].lang.length,
                   itemWidth: width * 0.8,
                   layout: SwiperLayout.STACK,
                   itemBuilder: (context, index) {
@@ -110,7 +129,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           Container(
                                               padding: EdgeInsets.all(8.0),
                                               child: Text(
-                                                awareness[index].name,
+                                                awareinfo[langint].lang[index].name,
                                                 style: GoogleFonts.montserrat(
                                                   fontSize: 25,
                                                   color: Colors.black,
@@ -120,7 +139,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                             width: width*0.6,
                                             padding: EdgeInsets.all(8.0),
                                             child: Text(
-                                              awareness[index].description,
+                                               awareinfo[langint].lang[index].description,
                                               style: GoogleFonts.montserrat(
                                                   color:
                                                   Colors.black.withOpacity(0.6)),
@@ -152,7 +171,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 mainAxisAlignment: MainAxisAlignment.end,
                                                 children: [
                                                   Text(
-                                                  "Know More", style: GoogleFonts.montserrat(color: Colors.red[700]),
+                                                  knowtext[langint], style: GoogleFonts.montserrat(color: Colors.red[700]),
                                                 ),
                                                Icon(
                                                     Icons.arrow_forward_ios, color: Colors.red[700],
@@ -168,7 +187,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                           ),
                           Image.asset(
-                            awareness[index].iconImage,
+                            awareinfo[langint].lang[index].iconImage,
                             width: width * .8,
                             height: height * .20,
                           ),

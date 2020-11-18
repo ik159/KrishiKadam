@@ -5,12 +5,49 @@ import 'Awareness_Section.dart';
 import 'Predictive_Analysis.dart';
 import 'profile_page.dart';
 import 'section2/combine.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:krishikadam/components/data.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   double width, height;
+
   final _foldingCellKey0 = GlobalKey<SimpleFoldingCellState>();
+
   final _foldingCellKey1 = GlobalKey<SimpleFoldingCellState>();
+
   final _foldingCellKey2 = GlobalKey<SimpleFoldingCellState>();
+
+  int langint;
+
+  getIntValuesSF() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  int boolValue = prefs.getInt('intValue') ?? 0;
+  print(boolValue);
+  setState(() {
+    langint = boolValue;
+  });
+}
+
+changeBool() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  int bValue = prefs.getInt('intValue') ?? 0;
+  prefs.setInt('intValue', (bValue > 0) ? 0 : 1 );
+  bValue = prefs.getInt('intValue');
+  setState(() {
+    langint = bValue;
+  });
+}
+
+@override
+  void initState() {
+    super.initState();
+    getIntValuesSF();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +100,7 @@ class HomePage extends StatelessWidget {
                     height: height * 0.045,
                     child: Center(
                       child: Text(
-                        "About",
+                        abttitle[langint],
                         style: GoogleFonts.montserrat(
                           textStyle: TextStyle(
                               fontSize: 16,
@@ -95,7 +132,7 @@ class HomePage extends StatelessWidget {
                     ),
                     child: Center(
                       child: Text(
-                        "Go to",
+                        gototitle[langint],
                         style: GoogleFonts.montserrat(
                           textStyle: TextStyle(
                               fontSize: 16,
@@ -166,17 +203,22 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0.0,
         title: Center(
-          child: Text("KrishiKadam",
+          child: Text(title[langint].name,
               style: GoogleFonts.montserrat(
                   textStyle: TextStyle(
                       fontSize: 23,
                       color: Colors.black,
                       fontWeight: FontWeight.w500))),
         ),
-        leading: Padding(
-          padding: EdgeInsets.only(left: 5.0),
-          child: Image(
-            image: AssetImage("assets/images/logo.png"),
+        leading: GestureDetector(
+          onTap: (){
+changeBool();
+          },
+                  child: Padding(
+            padding: EdgeInsets.only(left: 5.0),
+            child: Image(
+              image: AssetImage("assets/images/logo.png"),
+            ),
           ),
         ),
         actions: [
@@ -207,7 +249,7 @@ class HomePage extends StatelessWidget {
               width: width * 0.8,
               child: Center(
                 child: Text(
-                    "We aim to help our farmers by providing them with the right kind of data and information that one must have to do better in their field!",
+                    text252[langint],
                     textAlign: TextAlign.center,
                     style: GoogleFonts.montserrat(
                         textStyle: TextStyle(
@@ -224,12 +266,12 @@ class HomePage extends StatelessWidget {
                     child: SimpleFoldingCell(
                       key: _foldingCellKey0,
                       cellSize: Size(width, height * 0.13),
-                      frontWidget: FTop(_foldingCellKey0, "Awareness",
+                      frontWidget: FTop(_foldingCellKey0, awarenesstitle[langint],
                           () => AwarenessSection()),
                       innerTopWidget: ITop(
-                          _foldingCellKey0, "Important information for growth and development, helps understand the advantages and opportunities available."),
+                          _foldingCellKey0, text272[langint]),
                       innerBottomWidget: IBottom(
-                          _foldingCellKey0, "Helpful documents, government plans and schemes, subsidiaries, NGOs and more!"),
+                          _foldingCellKey0, text274[langint]),
                     ),
                   ),
                   SizedBox(
@@ -240,11 +282,11 @@ class HomePage extends StatelessWidget {
                       key: _foldingCellKey1,
                       cellSize: Size(width, height * 0.13),
                       frontWidget: FTop(
-                          _foldingCellKey1, "Real Time Data", () => sect2()),
+                          _foldingCellKey1, realtimetitle[langint], () => sect2()),
                       innerTopWidget: ITop(
-                          _foldingCellKey1, "Updates about the current information of your crops, as found and sensed by the installed sensors."),
+                          _foldingCellKey1, text287[langint]),
                       innerBottomWidget: IBottom(
-                          _foldingCellKey1, "Real time details of the temperature, humidity, rainfall and more!"),
+                          _foldingCellKey1, text289[langint]),
                     ),
                   ),
                   SizedBox(
@@ -254,12 +296,12 @@ class HomePage extends StatelessWidget {
                     child: SimpleFoldingCell(
                       key: _foldingCellKey2,
                       cellSize: Size(width, height * 0.13),
-                      frontWidget: FTop(_foldingCellKey2, "Predictive Analysis",
+                      frontWidget: FTop(_foldingCellKey2, predititle[langint],
                           () => sect3()),
                       innerTopWidget: ITop(
-                          _foldingCellKey2, "Useful tool to plan future care for your crops and soil according to the predictions made by our models."),
+                          _foldingCellKey2, text302[langint]),
                       innerBottomWidget: IBottom(
-                          _foldingCellKey2, "Combines real time data and known information about the crop/soil used to give predictions about the life and requirements of the crop!"),
+                          _foldingCellKey2, text304[langint]),
                     ),
                   ),
                 ],

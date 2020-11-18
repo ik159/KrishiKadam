@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:krishikadam/components/data.dart';
 import '../main.dart';
 import './bottom_nav.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 class ProfilePage extends StatefulWidget {
   @override
   _ProfilePageState createState() => _ProfilePageState();
@@ -12,6 +13,17 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   double width, height;
+int langint;
+  getIntValuesSF() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  int boolValue = prefs.getInt('intValue') ?? 0;
+  print(boolValue);
+  setState(() {
+    langint = boolValue;
+  });
+}
+
+
   String uid;
   String name;
   String phone;
@@ -25,6 +37,7 @@ class _ProfilePageState extends State<ProfilePage> {
   void initState() {
     super.initState();
     getCurrentUser();
+    getIntValuesSF();
   }
 
   Future<void> getCurrentUser() async {
@@ -63,7 +76,7 @@ class _ProfilePageState extends State<ProfilePage> {
           width: width * 0.60,
           child: Center(
             child: Text(
-              "Profile",
+              protitle[langint],
               style: GoogleFonts.montserrat(
                 fontSize: 19,
                 color: Colors.black,
@@ -168,7 +181,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     width: width * 0.3,
                     child: Center(
                       child: Text(
-                        "Place",
+                        pltitle[langint],
                         style: GoogleFonts.montserrat(
                             fontSize: 17,
                             color: Colors.white,
@@ -226,7 +239,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     width: width * 0.3,
                     child: Center(
                       child: Text(
-                        "Phone",
+                        phtitle[langint],
                         style: GoogleFonts.montserrat(
                             fontSize: 17,
                             color: Colors.white,
@@ -283,7 +296,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 width: width * 0.60,
                 child: Center(
                   child: Text(
-                    "Sensor Information",
+                    seninfo[langint],
                     style: GoogleFonts.montserrat(
                       fontSize: 17,
                       color: Colors.black, //0xFF78A143
@@ -312,7 +325,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "Sensor 1: Soil",
+                            sen1[langint],
                             style: GoogleFonts.montserrat(
                               fontSize: 15,
                             ),
@@ -340,7 +353,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "Sensor 2: Water",
+                            sen2[langint],
                             style: GoogleFonts.montserrat(
                               fontSize: 15,
                             ),
@@ -368,7 +381,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "Sensor 3: ",
+                            sen3[langint],
                             style: GoogleFonts.montserrat(
                               fontSize: 15,
                             ),
