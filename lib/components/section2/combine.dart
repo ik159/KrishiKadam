@@ -29,7 +29,7 @@ class _ScreenState extends State<Screen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        toolbarHeight: height*0.1,
+        toolbarHeight: height * 0.1,
         backgroundColor: Colors.white,
         elevation: 0.0,
         title: Container(
@@ -49,8 +49,7 @@ class _ScreenState extends State<Screen> {
               BoxShadow(
                   color: Colors.grey.withOpacity(0.45),
                   blurRadius: 3,
-                  offset: Offset(0,5)
-              ),
+                  offset: Offset(0, 5)),
             ],
           ),
           padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
@@ -63,24 +62,28 @@ class _ScreenState extends State<Screen> {
               color: Colors.black,
             ),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()) );
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => HomePage()));
             },
           ),
         ),
       ),
       body: SingleChildScrollView(
-              child: Center(
-                child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Text(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              SizedBox(
+                height: 15,
+              ),
+              Text(
                 'Soil',
                 style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w500,
                     fontSize: 25.0),
-            ),
-            GestureDetector(
+              ),
+              GestureDetector(
                 onTap: () {
                   Navigator.push(
                     context,
@@ -102,15 +105,15 @@ class _ScreenState extends State<Screen> {
                     ),
                   ),
                 ),
-            ),
-            Text(
+              ),
+              Text(
                 ' Crop',
                 style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w500,
                     fontSize: 25.0),
-            ),
-            GestureDetector(
+              ),
+              GestureDetector(
                 onTap: () {
                   Navigator.push(
                     context,
@@ -132,10 +135,10 @@ class _ScreenState extends State<Screen> {
                     ),
                   ),
                 ),
-            ),
-          ],
-        ),
               ),
+            ],
+          ),
+        ),
       ),
       bottomNavigationBar: BottomNav(
         height: height,

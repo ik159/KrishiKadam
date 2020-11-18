@@ -171,7 +171,7 @@ class _BeginningPageState extends State<BeginningPage> {
             child: Column(
             children: [
               SizedBox(
-                height: height*0.02,
+                height: height*0.06,
               ),
               Container(
                 margin: EdgeInsets.symmetric(vertical: 5),
