@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:custom_switch/custom_switch.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../bottom_nav.dart';
 import 'combine.dart';
@@ -12,7 +11,7 @@ class Soil extends StatefulWidget {
 
 class _SoilState extends State<Soil> {
   double width, height;
-  int langint;
+int langint;
   getIntValuesSF() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   int boolValue = prefs.getInt('intValue') ?? 0;
@@ -27,6 +26,33 @@ class _SoilState extends State<Soil> {
     super.initState();
     getIntValuesSF();
   }
+  Container create(String topic, String rlevel, String clevel)
+  {
+    return Container(
+      decoration: BoxDecoration(
+          color: Color(0xFFB9DA8F), borderRadius: BorderRadius.circular(15)),
+      height: height*0.15,
+      width: width*0.8,
+      child: Column(
+        children: [
+          SizedBox(height: height*0.02,),
+          Container(child: Text(topic, style: GoogleFonts.montserrat(fontWeight: FontWeight.bold, fontSize: 18, color: Colors.black54), textAlign: TextAlign.start,)),
+          SizedBox(height: height*0.02,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+          Container(
+            child: Text( reql[langint] + ": \n $rlevel", style:GoogleFonts.montserrat(fontWeight: FontWeight.w400, fontSize: 15, color: Colors.black),),
+          ),
+          Container(
+            child: Text( curl[langint] +": \n $clevel", style:GoogleFonts.montserrat(fontWeight: FontWeight.w400, fontSize: 15, color: Colors.black),),
+          ),
+          ],
+          ),
+        ],
+      ),
+    );
+}
   @override
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
@@ -34,7 +60,7 @@ class _SoilState extends State<Soil> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        toolbarHeight: height*0.1,
+        toolbarHeight: height * 0.1,
         backgroundColor: Colors.white,
         elevation: 0.0,
         title: Container(
@@ -54,8 +80,7 @@ class _SoilState extends State<Soil> {
               BoxShadow(
                   color: Colors.grey.withOpacity(0.45),
                   blurRadius: 3,
-                  offset: Offset(0,5)
-              ),
+                  offset: Offset(0, 5)),
             ],
           ),
           padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
@@ -68,7 +93,8 @@ class _SoilState extends State<Soil> {
               color: Colors.black,
             ),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => sect2()) );
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => sect2()));
             },
           ),
         ),
@@ -78,172 +104,17 @@ class _SoilState extends State<Soil> {
           child: Container(
               child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               SizedBox(height: 20),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                    padding: EdgeInsets.all(10),
-                    height: height * 0.15,
-                    width: width * 0.85,
-                    decoration: BoxDecoration(
-                        color: Color(0xFFB9DA8F),
-                        borderRadius: BorderRadius.circular(20)),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Air Humidity',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 16),
-                            ),
-                            Text(
-                              '(Low Value)',
-                              style:
-                                  TextStyle(color: Colors.indigo, fontSize: 16),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text(
-                              'Max: 60',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 16),
-                            ),
-                            Text(
-                              'Min: 50',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 16),
-                            ),
-                            Text(
-                              '31.95%',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 30),
-                            ),
-                          ],
-                        ),
-                      ],
-                    )),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                    padding: EdgeInsets.all(10),
-                    height: height * 0.15,
-                    width: width * 0.85,
-                    decoration: BoxDecoration(
-                        color: Color(0xFFB9DA8F),
-                        borderRadius: BorderRadius.circular(20)),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Air Humidity',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 16),
-                            ),
-                            Text(
-                              '(Low Value)',
-                              style:
-                                  TextStyle(color: Colors.indigo, fontSize: 16),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text(
-                              'Max: 60',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 16),
-                            ),
-                            Text(
-                              'Min: 50',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 16),
-                            ),
-                            Text(
-                              '31.95%',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 30),
-                            ),
-                          ],
-                        ),
-                      ],
-                    )),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                    padding: EdgeInsets.all(10),
-                    height: height * 0.15,
-                    width: width * 0.85,
-                    decoration: BoxDecoration(
-                        color: Color(0xFFB9DA8F),
-                        borderRadius: BorderRadius.circular(20)),
-                    child: Center(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          RichText(
-                            text: TextSpan(
-                              text: 'Fog Spray ',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 16),
-                              children: <TextSpan>[
-                                TextSpan(
-                                    text: '(On)',
-                                    style: TextStyle(
-                                        fontSize: 16, color: Colors.indigo)),
-                              ],
-                            ),
-                          ),
-                          Switch()
-                        ],
-                      ),
-                    )),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                    padding: EdgeInsets.all(10),
-                    height: height * 0.15,
-                    width: width * 0.85,
-                    decoration: BoxDecoration(
-                        color: Color(0xFFB9DA8F),
-                        borderRadius: BorderRadius.circular(20)),
-                    child: Center(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          RichText(
-                            text: TextSpan(
-                              text: 'Fog Spray ',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 16),
-                              children: <TextSpan>[
-                                TextSpan(
-                                    text: '(On)',
-                                    style: TextStyle(
-                                        fontSize: 16, color: Colors.indigo)),
-                              ],
-                            ),
-                          ),
-                          Switch()
-                        ],
-                      ),
-                    )),
-              ),
+              create(soilph[langint], "8", "7"),
+              SizedBox(height: 20),
+              create(nutcontent[langint], "66", "52"),
+              SizedBox(height: 20),
+              create(watering[langint], "90", "94"),
+              SizedBox(height: 20),
+              create(ferti[langint], "8", "8"),
+              SizedBox(height: 20),
             ],
           )),
         ),
@@ -253,33 +124,5 @@ class _SoilState extends State<Soil> {
         width: width,
       ),
     );
-  }
-}
-
-class Switch extends StatefulWidget {
-  @override
-  _SwitchState createState() => _SwitchState();
-}
-
-class _SwitchState extends State<Switch> {
-  bool isSwitched = false;
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          CustomSwitch(
-            value: isSwitched,
-            activeColor: Colors.green,
-            onChanged: (value) {
-              setState(() {
-                isSwitched = value;
-              });
-            },
-          ),
-
-          // Text('', style: TextStyle(color: Colors.red,
-          //     fontSize: 15.0),)
-        ]);
   }
 }

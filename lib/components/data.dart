@@ -24,6 +24,27 @@ List sen2 = [
   "Sensor1:Humidity",
   "सेंसर 1: नमी"
 ] ;
+
+List hum = [
+  "Humidity" ,
+  "नमी"
+];
+
+List temp = [
+  "Temperature",
+  "तापमान"
+];
+
+List rain = [
+  "Rainfall",
+  "वर्षा"
+];
+
+List dew =[
+  "Dew",
+   "ओस"
+];
+
 List sen3 = [
   "Sensor1:Temperature",
   "सेंसर 1: तापमान"
@@ -33,7 +54,34 @@ List pltitle = [
   "Place",
   "स्थान"
 ];
+List soilph = [
+"Soil pH",
+"मिट्टी का पीएच"
 
+];
+
+List reql = [
+  "Required Levels",
+  "आवश्यक स्तर"
+];
+List curl = [
+  "Current Levels",
+  "वर्तमान स्तर"
+];
+
+
+List watering = [
+"Watering",
+"सिंचाई"
+];
+List ferti = [
+"Fertility",
+"उपजाऊपन"
+];
+List nutcontent = [
+"Nutrient Content",
+"पोषक तत्व सामग्री"
+];
 List soil = [
   "Soil",
   "मिट्टी"
