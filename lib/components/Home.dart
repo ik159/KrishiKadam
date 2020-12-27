@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:folding_cell/folding_cell.dart';
+import 'package:krishikadam/components/NewsFeed.dart';
 import 'Awareness_Section.dart';
 import 'Predictive_Analysis.dart';
 import 'profile_page.dart';
@@ -186,7 +187,7 @@ class HomePage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ProfilePage()),
+                  MaterialPageRoute(builder: (context) => NewsFeed()),
                 );
               },
               icon: Icon(

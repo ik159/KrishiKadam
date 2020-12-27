@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:krishikadam/components/NewsFeed.dart';
 import './Awareness_Section.dart';
 import './Predictive_Analysis.dart';
 import 'Predictive_Analysis.dart';
@@ -39,31 +40,45 @@ class _BottomNavState extends State<BottomNav> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                GestureDetector(
-                  onTap: null,
-                  child: Container(
-                    margin: const EdgeInsets.symmetric(vertical: 5.0),
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    decoration: BoxDecoration(
-                        color: Color(0xFFB9DA8F),
-                        borderRadius: BorderRadius.circular(10)),
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.description,
-                      ),
-                      onPressed: () {
-                        Navigator.push(
+                Container(
+                  margin: const EdgeInsets.symmetric(vertical: 5.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 6.0),
+                  decoration: BoxDecoration(
+                      color: Color(0xFFB9DA8F),
+                      borderRadius: BorderRadius.circular(10)),
+                  child: IconButton(
+                    icon: Icon(Icons.message),
+                    onPressed: () {
+                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => AwarenessSection()),
+                              builder: (context) => NewsFeed()),
                         );
-                      },
-                    ),
+                    },
                   ),
                 ),
                 Container(
                   margin: const EdgeInsets.symmetric(vertical: 5.0),
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 6.0),
+                  decoration: BoxDecoration(
+                      color: Color(0xFFB9DA8F),
+                      borderRadius: BorderRadius.circular(10)),
+                  child: IconButton(
+                    icon: Icon(
+                      Icons.description,
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => AwarenessSection()),
+                      );
+                    },
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.symmetric(vertical: 5.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 6.0),
                   decoration: BoxDecoration(
                       color: Color(0xFFB9DA8F),
                       borderRadius: BorderRadius.circular(10)),
@@ -80,7 +95,7 @@ class _BottomNavState extends State<BottomNav> {
                 ),
                 Container(
                   margin: const EdgeInsets.symmetric(vertical: 5.0),
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 6.0),
                   decoration: BoxDecoration(
                       color: Color(0xFFB9DA8F),
                       borderRadius: BorderRadius.circular(10)),
