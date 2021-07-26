@@ -1,16 +1,21 @@
-# krishikadam
+# KrishiKadam- A smart application for the agricultural sector!
 
-A new Flutter project.
+# [Link for the apk](https://drive.google.com/file/d/1CvHW1rY4m-wACEv9Zx8eudx_Re4VmLm5/view?usp=sharing)
 
-## Getting Started
+# Purpose:
+With agriculture being the primary source of income for India and such an important sector, it is important that our farmers are aware of their rights, needs and the various resources available for them, alongside with the knowledge of how they can implement these.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Objective of the Project:
+## We seek to provide three sections/kinds of information to our farmers in the form of an app+sensors to help them:
+• Section 1: Awareness section: Aims to spread awareness, giving our farmers important
+information for their growth and development which will help them understand the
+advantages and opportunities available to them.
+• Section 2: Current Crop/Soil Information: Gives our farmers alerts by using sensors that
+connect to the app and update the user of any important information such as humidity
+conditions, temperature, rain, soil moistness etc.
+• Section 3: Predictive Analysis: Predicts and gives instructions to the farmers about what
+should be done for better quality and life of the crops, by using the information received by
+the sensors alongside information of future weather forecasts and prior knowledge of crop
+needs.
+• Section 4: News Feed: Allows our users to come together and post updates on their
+requirements, needs and current happenings.
