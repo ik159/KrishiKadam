@@ -1,6 +1,6 @@
 # KrishiKadam- A smart application for the agricultural sector!
 
-# [Link for the apk](https://drive.google.com/file/d/1CvHW1rY4m-wACEv9Zx8eudx_Re4VmLm5/view?usp=sharing)
+# [Link to the apk](https://drive.google.com/file/d/1CvHW1rY4m-wACEv9Zx8eudx_Re4VmLm5/view?usp=sharing)
 
 # Purpose:
 With agriculture being the primary source of income for India and such an important sector, it is important that our farmers are aware of their rights, needs and the various resources available for them, alongside with the knowledge of how they can implement these.
